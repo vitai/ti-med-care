@@ -13,19 +13,26 @@
          painel:[],
         onInit:function()
         {
-          
-         app.currentViewModel = this;
-            
+         	app.currentViewModel = this;
         },dataSource: new kendo.data.DataSource({
-         transport:
-            { 
-                read: 
+             transport:
                 { 
-                    dataType: "json" 
-                } 
-            },
-         sortable:true
-            }),       
+                    read: 
+                    { 
+                        url: app.unidadeUrl + "ws/relatorio?q=22",
+                        dataType: "json" 
+                    } 
+                },
+            schema: {
+                parse: function (response) {
+					console.log(response);
+                        
+                            
+                        return response;
+                    }
+                },            
+             sortable:true
+        }),       
         onUpdate: function() 
         {   
             var that = this;
@@ -33,8 +40,6 @@
         },
        onBeforeShowView: function(e)
         {
-            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=22";
-            console.log(app.unidadeUrl + "ws/relatorio?q=22");
         }
    });
     
