@@ -1,0 +1,19 @@
+<div   data-role="view"  data-title="Unidades" data-layout="main"
+    data-model="app.unidadeservice.viewModel"  data-bind="events:{beforeShow:onViewShow}">
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div>
+     <a  data-role="button" data-align="left" href="views/login.html" data-icon="drawer-button"></a>    
+      <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+
+<ul id="uiSituacao" data-role="listview" data-style="inset" 
+        data-template="unidadesTemplate" data-bind="source: dataSource, events:{click: onListViewChanged }"></ul>
+</div>
+
+<script type="text/x-kendo-template" id="unidadesTemplate">
+             <div>#:data.DESCRICAO#</div>
+</script>

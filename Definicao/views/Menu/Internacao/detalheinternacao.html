@@ -1,0 +1,32 @@
+<div   data-role="view"  data-title="Detalhe Paciente" data-layout="main"
+    data-model="app.detalheservice.viewModel" data-bind="events: {show: onViewShow}" >
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>             
+          </div>
+      </div>
+    </div>    
+ </br>
+    
+<div class="list-view-wrapper">
+     
+<div  class="helpIcon2"></div>Paciente: <div style="display:inline-block" data-bind="html:paciente"></div>   
+    
+ <ul id="uiSituacao2" data-role="listview" data-style="inset" data-template="detalhepaciente"
+     data-bind="source: dataSource">
+</ul>   
+    
+     <ul id="uiSituacao3" data-role="listview" data-style="inset">
+       <div style="font-weight:bold">Prescrição em Uso</div> 
+       <li>Dipirona</li>
+     </ul>
+  </div>
+
+<script type="text/x-kendo-template" id="detalhepaciente">
+<div>#: data.DETALHE #</div>
+<div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+</script>
+    

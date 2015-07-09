@@ -1,0 +1,55 @@
+<div   data-role="view"  data-title="Agendamentos" data-layout="main"
+    data-model="app.agendaservice.viewModel" data-bind="events: {beforeShow:onBeforeShowView, init: onInit }">
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a  data-role="button" data-align="left" href="views/Menu.html" data-icon="drawer-button"></a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a class="helpIcon2" href="#" data-align="right" onclick="showHelpText('teste')" ></a>
+              
+          </div>
+      </div>
+    </div>    
+
+ <ul id="uiSituacao2" data-role="listview" data-style="inset"
+     data-template="Agendamentos" data-bind="source: dataSource">
+     </ul>
+  </div>
+
+<div data-role="modalview" id="modalview-help" style="width: 90%;">
+            <div class="helpIcon">    
+        </div>
+    <div class="btnContent">
+        <a data-role="button" onclick="closeHelp();">Fechar</a>
+    </div> 
+    <div id="modalContent">    
+    </div>  
+</div>
+
+<script type="text/x-kendo-template" id="Agendamentos">
+<span>Vagas Ofertadas:</span>   
+<a href='views/Menu/recursoAgenda.html?recurso=' data-role="list-view-link">   
+<div style="display:inline-block">#: data.DESCRICAO #</div>
+<div style="display:inline-block;float:center; margin-right:20px"><b>- #:data.TOTAL#</b></div>    
+</a>    
+</script> 
+
+
+<script>   
+    function showHelpText(text)
+    {
+        $("#modalContent").html(text);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function showHelp(id)
+    {
+        $("#modalContent").html(app.agendaservice.viewModel.painel[id-1]);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function closeHelp()
+    {
+        $("#modalview-help").data("kendoMobileModalView").close();
+    }
+</script>
+    

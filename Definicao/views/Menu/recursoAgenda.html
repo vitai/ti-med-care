@@ -1,0 +1,29 @@
+<div   data-role="view"  data-title="Vagas Disponiveis" data-layout="main"
+    data-model="app.recursoagendaservice.viewModel" data-bind="events: {show: onViewShow, init: onInit }">
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a  data-role="button" data-align="left" href="views/Menu/agendamentos.html" data-icon="drawer-button"></a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a class="helpIcon2" href="#" data-align="right"></a>
+              
+          </div>
+      </div>
+    </div>    
+
+    
+<span style="margin:5px">Total:</span><div style="display:inline-block;float:center;margin:5px" data-bind="html:recurso"></div>
+
+ <ul id="uiSituacao2" data-role="listview" data-style="inset"
+     data-template="recursoAgenda" data-bind="source: dataSource">
+     </ul>
+  </div>
+
+<script type="text/x-kendo-template" id="recursoAgenda"> 
+ <a href='views/Menu/consultaAgenda.html?nome=#:data.INFOAGENDA#&consulta=#:data.QTA#' data-role="list-view-link" >
+<div style="display:inline-block">#: data.INFOAGENDA #</div>
+<div style="display:inline-block;float:center; margin-right:20px"><b>- #:data.PERCENT2#%</b></div>
+<div style="display:inline-block;float:right; margin-right:20px"><b>#: data.QTA #</b></div>
+    </a>
+</script>    

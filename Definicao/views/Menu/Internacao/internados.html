@@ -1,0 +1,29 @@
+<div   data-role="view"  data-title="Observação" data-layout="main"
+    data-model="app.enfermariaservice.viewModel" data-bind="events: {show: onViewShow}" >
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+             <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+
+    
+<div class="list-view-wrapper">  
+    </br>
+<div  class="helpIcon2"></div><div style="display:inline-block" data-bind="html:secao"></div>   
+ <ul data-role="listview" data-style="inset"  data-template="internadosTemplate" data-bind="source: dataSource">
+</ul>   
+</div>   
+</div>
+
+<script type="text/x-kendo-template" id="internadosTemplate">
+ <a href='views/Menu/Internacao/detalheinternacao.html?paciente=#:data.NOME#' data-role="list-view-link" >
+<div style="display:inline-block">#: data.NOME #</div></br>   
+<div style="display:inline-block">Sexo:</div><div style="display:inline-block">#: data.SEXO #</div>
+<div style="display:inline-block">Idade:</div><div style="display:inline-block">#: data.IDADE #</div> 
+</a>
+</script>
+    

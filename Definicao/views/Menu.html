@@ -1,0 +1,22 @@
+<div   data-role="view"  data-title="Menu" data-layout="main"
+        data-model="app.UnidadeService.viewModel" >
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+            <a  data-role="button" data-align="left" href="views/unidadesView.html" data-icon="home"></a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>   
+    
+    <ul id="uiSituacao0" data-role="listview" data-style="inset">
+        <li data-bind="events:{click:submit}">Agendamento</li>
+        <li data-bind="events:{click:interna}">Internação</li>      
+        <li data-bind="events:{click:emergencia}">Emergência</li>     
+    </ul>
+</div>
+
+
+    
+    

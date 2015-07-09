@@ -1,0 +1,34 @@
+   <div  data-role="view"
+    data-layout="main" data-model="app.LoginService.viewModel" data-bind="events:{beforeShow:onBeforeShowView}">
+
+    </br>
+    </br>
+    
+    <table style="width:100%">
+        <tr>
+            <td style="width:100%" >
+              <div class="vitailogo">
+              </div>
+            </td> 
+        </tr>
+    </table>
+    </br>
+    </br>
+
+         
+ <ul data-role="listview" data-style="inset">
+    <li>
+       <label data-bind=""> Usuario:</label>
+       <input type="text"  data-bind="value: username" />
+    </li>
+     <li>
+       <label data-bind=""> Senha:</label>
+       <input type="password"  data-bind="value: password"  />
+     </li>
+     <li>
+        <button style="width: 100%" data-role="button" data-bind="events:{click: submitt}">Entrar</button>
+     </li>
+</ul>
+          
+</div>       
+  

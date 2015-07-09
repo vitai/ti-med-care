@@ -1,0 +1,50 @@
+<div data-role="view"  data-title="Internacao" data-layout="main"
+    data-model="app.internaservice.viewModel" data-bind="events: {show: onViewShow, init: onInit }">
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>  
+          </div>
+      </div>
+    </div>       
+    
+<div class="list-view-wrapper"> 
+<div  class="helpIcon2">
+</div>
+<h2 class="listHeader2" >Indicadores</h2>
+ <ul id="uiSituacao2" data-role="listview" data-style="inset" 
+     data-template="indicadores" data-bind="source: dataSource">
+  </ul>
+   </div>
+    
+        <div class="list-view-wrapper">
+        <div  class="helpIcon2">
+        </div>
+        <h2 class="listHeader2">Ocupação de Leitos</h2>
+  <ul data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
+        </ul>   
+    </div>   
+
+   </div>
+
+<script type="text/x-kendo-template" id="indicadores">
+    
+<div style="display:inline-block" >#:data.DESCRICAO#</div>
+    
+<div style="display:inline-block;float:right; margin-right:20px"><b>#:data.QTA#</b></div>  
+</script>
+
+<script type="text/x-kendo-template" id="enfermariaTemplate">
+<a href='views/Menu/Internacao/internados.html?secao=#:data.LEITO#' data-role="list-view-link" >
+    
+<div style="display:inline-block">#:data.LEITO#</div><div style="display:inline-block;float:right; margin-right:20px">
+
+    <b>#:data.OCUPAÇÃO# de 10</b> 
+
+    </div>  
+ </a>   
+</script>    
+    

@@ -1,0 +1,25 @@
+<div   data-role="view"  data-title="Vagas Disponiveis" data-layout="main"
+    data-model="app.consultaagendaservice.viewModel" data-bind="events: {show: onViewShow, init: onInit }">
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+              <a  data-role="button" data-align="left" href="views/Menu/recursoAgenda.html" data-icon="drawer-button"></a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <a class="helpIcon2" href="#" data-align="right"></a>
+              
+          </div>
+      </div>
+    </div>    
+
+    
+<div style="display:inline-block;margin:10px" data-bind="html:nome"></div>:<div style="display:inline-block;margin:10px" data-bind="html:consulta"></div>
+
+ <ul id="uiSituacao2" data-role="listview" data-style="inset"
+     data-template="consultaAgenda" data-bind="source: dataSource"></ul>
+</div>
+
+<script type="text/x-kendo-template" id="consultaAgenda"> 
+<div style="display:inline-block">#: data.CONSULTA #</div>
+<div style="display:inline-block;float:right; margin-right:20px"><b>#: data.QTA #</b></div>
+</script>    
