@@ -15,6 +15,12 @@
  <ul id="uiSituacao2" data-role="listview" data-style="inset"
      data-template="Agendamentos" data-bind="source: dataSource">
      </ul>
+
+
+ <ul id="uiSituacao2" data-role="listview" data-style="inset"
+     data-template="Agendamentos" data-bind="source: dataSourceFaltas">
+     </ul>
+    
   </div>
 
 <div data-role="modalview" id="modalview-help" style="width: 90%;">
@@ -27,11 +33,12 @@
     </div>  
 </div>
 
+
+
 <script type="text/x-kendo-template" id="Agendamentos">
-<span>Vagas Ofertadas:</span>   
-<a href='views/Menu/recursoAgenda.html?recurso=' data-role="list-view-link">   
+<a href='views/Menu/recursoAgenda.html?recurso=#:data.TOTAL#' data-role="list-view-link">   
 <div style="display:inline-block">#: data.DESCRICAO #</div>
-<div style="display:inline-block;float:center; margin-right:20px">-<b>#:data.TOTAL#</b></div>    
+<div style="display:inline-block;float:right; margin-right:20px"><b>#:data.TOTAL#</b></div>    
 </a>    
 </script> 
 

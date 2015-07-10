@@ -3,8 +3,8 @@ var LoginModel,
   app = global.app = global.app || {};
     
    var retornoSantaCasa = [{STATUS:"OK",UNIDADES:[
-                { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"UPA - SANTA CASA", CODIGO:1 }]}];  
-    var retornoErro = [{STATUS:"ERRO"}];
+                { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1 }]}];  
+   var retornoErro = [{STATUS:"ERRO"}];
     
 LoginModel = kendo.data.ObservableObject.extend({
     username:"",

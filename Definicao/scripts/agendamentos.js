@@ -23,12 +23,46 @@
                 { 
                     url: app.unidadeUrl + "ws/relatorio?q=22",
                     dataType: "json" 
-                },
-                 filter: [
-                    { field: "DESCRICAO", operator: "equals", value: "DISPONÍVEIS" },
-                     { field: "DESCRICAO", operator: "equals", value: "AGENDADOS" }
-                ]
+                }
             },
+            filter: {
+             logic: "or",
+             filters : [
+                { field: "DESCRICAO", operator: "eq", value: "AGENDADOS"},
+                { field: "DESCRICAO", operator: "eq", value: "DISPONÍVEIS"},
+                { field: "DESCRICAO", operator: "eq", value: "TOTAL OFERTADO"}
+            
+            ]},
+          sortable:true,
+            }),       
+                 schema: {
+                  parse: function (response) {
+                                    console.log(response)
+                           if (response)
+                                    {
+                                        return response;
+                                    }
+                          }
+        },
+        onUpdate: function() 
+        {   
+            var that = this;
+            this.refresh();
+        },dataSourceFaltas: new kendo.data.DataSource({
+         transport:
+            { 
+                read: 
+                { 
+                    url: app.unidadeUrl + "ws/relatorio?q=22",
+                    dataType: "json" 
+                }
+            },
+             filter: {
+             logic: "or",
+             filters: [
+                { field: "DESCRICAO", operator: "equals", value: "FALTAS"},
+                { field: "DESCRICAO", operator: "equals", value: "REALIZADOS"}
+            ]},
           sortable:true,
             }),       
                  schema: {

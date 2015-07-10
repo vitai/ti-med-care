@@ -5,13 +5,25 @@
     app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
+    app.TotalUnidades = 1;
    
     app.Login = function(userSettings){
+        if(app.TotalUnidades == 1){
         app.usuarioSettings = userSettings;
         app.permissoes = userSettings.PERMISSOES;
         console.log(userSettings);  
-        app.application.navigate('views/unidadesView.html');      
+        app.application.navigate('views/Menu.html');      
+        }else{
+        app.usuarioSettings = userSettings;
+        app.permissoes = userSettings.PERMISSOES;
+        console.log(userSettings);  
+        app.application.navigate('views/unidadesView.html');        
+            
+            
         }
+        app.TotalUnidades = null;
+        console.log(app.TotalUnidades);
+    }
     
 document.addEventListener("deviceready",function(){
         navigator.splashscreen.hide();
