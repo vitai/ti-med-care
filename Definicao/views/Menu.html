@@ -9,11 +9,27 @@
           </div>
       </div>
     </div>   
+
     
-    <ul id="uiSituacao0" data-role="listview" data-style="inset">
-        <li data-bind="events:{click:submit}">Agendamento</li>
-        <li data-bind="events:{click:interna}">Internação</li>      
-        <li data-bind="events:{click:emergencia}">Emergência</li>     
+    <ul id="uiSituacao" data-role="listview" data-style="inset">
+      <li>
+             <a href='views/Menu/agendamentos.html' data-role="list-view-link">   
+             <span style="display:inline-block;color:#3399CC">Agendamento</span></br>   
+             <span>Descrição sobre os agendamentos</span>           
+              </a>
+      </li>
+      <li>
+             <a href='views/Menu/Internacao/internacao.html' data-role="list-view-link">   
+             <span style="display:inline-block;color:#3399CC">Internação</span></br>   
+             <span>Descrição sobre as Internações</span>           
+             </a>
+      </li>   
+      <li>
+             <a href='views/Menu/emergencia.html' data-role="list-view-link">   
+             <span style="display:inline-block;color:#3399CC">Emergência</span></br>   
+             <span>Descrição sobre as Emergência</span>           
+            </a>
+      </li>  
     </ul>
 </div>
 

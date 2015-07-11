@@ -21,7 +21,6 @@
             
             
         }
-        app.TotalUnidades = null;
         console.log(app.TotalUnidades);
     }
     
@@ -37,7 +36,7 @@ document.addEventListener("deviceready",function(){
         app.unidadeCorrente = null;
         app.currentViewModel = null;
     
- app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/login.html'});
+ app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/prontuario/SumarioView.html'});
     
 }, false);           
 })(window);
