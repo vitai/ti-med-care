@@ -1,75 +1,61 @@
 <div data-role="view"data-model="app.sumarioService.viewModel"
-    data-layout="main" >
-    <div data-role="header">
-      <div data-role="navbar">
-          <div>  
-              <span data-role="view-title" style="line-height:1.8em"></span>
-          </div>
-      </div>
-    </div> 
+    data-layout="main"  >
 
-  <header>
-    <!-- toggle icon, .k-rpanel-toggle hides it on page width > breakpoint -->
-    <!--button class="k-rpanel-toggle"><i class="k-icon k-i-hbars"></i></button-->
-
-    <h1 data-bind="html: paciente.nome"></h1>
-  </header>    
-
-
-    
-  <!--nav id="sidebar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-  </nav-->
+	<h1 class="patient-ribbon-name" data-bind="html: paciente.nome">
+	</h1>
 
     
 
-        <!--
-  <script>
-    $("#sidebar")
-      .kendoResponsivePanel({
-        breakpoint: 1020,
-        orientation: "left"
-      })
-      .on("click", "a", function(e) {
-        // handle clicks of dummy items, actual links do not need this
-        alert($(e.target).text() + " clicked");
-        $("#sidebar").kendoResponsivePanel("close");
-      });
-  </script>
-        -->
+
+    
 </div>
         
- <style>
-    #sidebar {
-      /* panel background should be set to match design 
-        background: #092646;*/
-        height:100%;
+<style>
+ 
+ 
+h1{
+    font-size: 2.0em;
+}
+ 
+h2{
+    font-size: 2.618em;
+}
+ 
+h3{
+    font-size: 1em;
+    line-height: 1.618em;
+    text-transform: uppercase;
+}
+ 
+p{
+    font-size: 1em;
+    line-height: 1.618em;
+}
+    
+    @media all and (min-width: 960px) {
+    body{
+        font-size: 18px;
     }
-
-    article {
-      /* clear the floating sidebar */
-      overflow: hidden;
+}
+ 
+@media all and (max-width: 959px) and (min-width: 600px) {
+    body{
+        font-size: 16px !important;
     }
-
-     
-     [data-role="content"]{
-        background:linear-gradient(to bottom, #e0e0e0, #fff) !important;    
-     }
-    header {
-        padding: 1em;
-        /*color: #fff;
-      background-image: linear-gradient(to top, #014F80 0%, #092646 100%);*/
+}
+ 
+@media all and (max-width: 599px) and (min-width: 330px) {
+    body{
+        font-size: 8px !important;
     }
-
-    h1 { display: inline; }
-    p { padding: 2em; }
-    nav a {
-        border: 1px solid #ccc;
-      background: #ddd;
-      display: block;
-      text-decoration: none;
-      padding: .5em;
+ 
+}
+    
+@media all and (max-width: 329px) and (min-width: 250px) {
+    body{
+        font-size: 5px !important;
     }
-  </style>
-        
+ 
+}
+    
+</style>
