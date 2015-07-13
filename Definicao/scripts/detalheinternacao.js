@@ -1,31 +1,54 @@
 (function(global){
    var detalheModel,
     app = global.app = global.app || {};
-    
-        var detalheinternado = [{DETALHE:"Tempo Permanência",VALOR:30},{DETALHE:"Data Entrada",VALOR:31022015},
-            {DETALHE:"Previsão de Alta",VALOR:04022015}];   
+
     
     detalheModel = kendo.data.ObservableObject.extend({
         paciente:"",
+        entrada:"",
         onViewShow: function(e)
         {
           var that = this;
           that.set("paciente", e.view.params.paciente);
-          console.log(e.view.params.paciente);             
-          this.dataSource.read({ data: detalheinternado});  
+          that.set("entrada", e.view.params.entrada);
+         this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+          this.refresh();
         },
         refresh: function()
         {
-            this.dataSource.read({data : detalheinternado});           
+            this.dataSource.read();           
         },
         dataSource: new kendo.data.DataSource({
-                transport: {
-                read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-              }
-             }),    
+                       transport: {
+                                read:  {
+                                  dataType: "json",
+                                  data: function() {
+                                        var param = {
+
+                                            "q":7,
+                                            "idSecao": app.enfermariaservice.viewModel.secao,
+                                            "setorId": 2
+    
+                                        };
+                                      return param;
+                                    }
+                                }
+                           },            
+                            schema: {
+                                parse: function (response) {
+                                    if (response)
+                                    {
+                                        
+                                        return response;
+                                    }
+                                    else
+                                        return [];
+                                
+                            }
+                          },
+                           sortable:true,
+                          sort: { field: "TEMPO_ESPERA", dir: "desc" }
+                    }),  
         onUpdate: function() 
         {
             this.refresh();

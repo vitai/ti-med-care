@@ -1,7 +1,7 @@
 (function(global) {
   var app =  global.app = global.app || {};
     
-    app.unidadeUrl = "http://santacasadecampos.dyndns.org:8080/sits/";
+    app.unidadeUrl = "";
     app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
@@ -18,10 +18,8 @@
         app.permissoes = userSettings.PERMISSOES;
         console.log(userSettings);  
         app.application.navigate('views/unidadesView.html');        
-            
-            
+
         }
-        console.log(app.TotalUnidades);
     }
     
 document.addEventListener("deviceready",function(){

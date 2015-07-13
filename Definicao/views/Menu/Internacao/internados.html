@@ -1,5 +1,5 @@
 <div   data-role="view"  data-title="Observação" data-layout="main"
-    data-model="app.enfermariaservice.viewModel" data-bind="events: {show: onViewShow}" >
+    data-model="app.enfermariaservice.viewModel" data-bind="events: {init: onInit, show:onViewShow}" >
 
     <div data-role="header">
       <div data-role="navbar">
@@ -13,15 +13,18 @@
     
 <div class="list-view-wrapper">  
     </br>
-<div  class="helpIcon2"></div><div style="display:inline-block" data-bind="html:secao"></div>   
+<div  class="helpIcon2"></div>    
+<span style="display:inline-block;margin10px">Ocupação:</span>
+<div style="display:inline-block;margin10px" data-bind="html:value"></div>   
+    
  <ul data-role="listview" data-style="inset"  data-template="internadosTemplate" data-bind="source: dataSource">
 </ul>   
 </div>   
 </div>
 
 <script type="text/x-kendo-template" id="internadosTemplate">
- <a href='views/Menu/Internacao/detalheinternacao.html?paciente=#:data.NOME#' data-role="list-view-link" >
-<div style="display:inline-block">#: data.NOME #</div></br>   
+ <a href='views/Menu/Internacao/detalheinternacao.html?paciente=#:data.NMCIDADAO#&entrada=#:data.BOE_DATAENTRADA#' data-role="list-view-link" >
+<div style="display:inline-block">#: data.NMCIDADAO #</div></br>   
 <div style="display:inline-block">Sexo:</div><div style="display:inline-block">#: data.SEXO #</div>
 <div style="display:inline-block">Idade:</div><div style="display:inline-block">#: data.IDADE #</div> 
 </a>

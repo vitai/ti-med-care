@@ -13,20 +13,19 @@
     
 <div class="list-view-wrapper">
      
-<div  class="helpIcon2"></div>Paciente: <div style="display:inline-block" data-bind="html:paciente"></div>   
+<div class="helpIcon2"></div>
+  <span>Paciente:</span><div style="display:inline-block" data-bind="html:paciente"></div>   
+    </br>
+  <span>Data Entrada:</span><div  style="display:inline-block;margin:10px" data-bind="html:entrada"></div> 
     
  <ul id="uiSituacao2" data-role="listview" data-style="inset" data-template="detalhepaciente"
      data-bind="source: dataSource">
 </ul>   
+  
     
-     <ul id="uiSituacao3" data-role="listview" data-style="inset">
-       <div style="font-weight:bold">Prescrição em Uso</div> 
-       <li>Dipirona</li>
-     </ul>
+  </div>     
   </div>
-
+    
 <script type="text/x-kendo-template" id="detalhepaciente">
-<div>#: data.DETALHE #</div>
-<div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
 </script>
     

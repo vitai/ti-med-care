@@ -19,6 +19,7 @@
         {
             app.unidadeCorrente = e.dataItem;
             app.unidadeUrl = e.dataItem.URL;
+            console.log(e.dataItem.URL);
             app.application.navigate('views/Menu.html');
         }
     

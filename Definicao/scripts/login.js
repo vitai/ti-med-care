@@ -2,8 +2,11 @@
 var LoginModel,
   app = global.app = global.app || {};
     
-   var retornoSantaCasa = [{STATUS:"OK",UNIDADES:[
-                { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1 }]}];  
+   var Unidades = [{STATUS:"OK",UNIDADES:[
+                { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1},
+               { UNIDADEID:2, URL:"http://177.153.18.165:8081/heetshl/", DESCRICAO:"HOSPITAL DE TRAUMA", CODIGO:2 }]
+ }];  
+
    var retornoErro = [{STATUS:"ERRO"}];
     
 LoginModel = kendo.data.ObservableObject.extend({
@@ -42,13 +45,11 @@ LoginModel = kendo.data.ObservableObject.extend({
               navigator.notification.alert("Senha é necessário.");
               return;
           }
-           
            var dataTemp = retornoErro;
            if (this.username == "teste" && this.password == "teste123")
            {
-               dataTemp =  retornoSantaCasa;
+               dataTemp =  Unidades;
                app.application.navigate('views/Menu.html');   
-              
            }
           
           this.dataSource.read({ data: dataTemp });

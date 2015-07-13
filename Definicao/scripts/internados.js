@@ -1,34 +1,63 @@
 (function(global){
    var EnfermariaModel,
-    app = global.app = global.app || {};
-    
-    var PacienteInternados = [{NOME:"Daniel Silva",SEXO:"M",IDADE:21},
-    
-    {NOME:"Jaqueline Santos Ferreira",SEXO:"F",IDADE:27},
-    
-    {NOME:"Thiago de Souza",SEXO:"M",IDADE:13}];   
+    app = global.app || {};
     
     EnfermariaModel = kendo.data.ObservableObject.extend({
+        value:"",
         secao:"",
-        onViewShow: function(e)
+         onViewShow: function(e)
         {
-          var that = this;
-          that.set("secao", e.view.params.secao);
-          console.log(e.view.params.secao);    
-          this.dataSource.read({ data: PacienteInternados});  
-         },
+           
+            var that = this;
+            
+            that.set("secao", e.view.params.secao);
+            that.set("value", e.view.params.value);
+             console.log(e.view.params.value);    
+             console.log(e.view.params.secao);    
+            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+           this.refresh();   
+            
+        },
+        onInit:function()
+        {
+            app.currentViewModel = this;
+           
+        },
         refresh: function()
         {
-          this.dataSource.read({ data: PacienteInternados});         
+              this.dataSource.read();
         },   
            dataSource: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-               }
-             }),   
+                                     transport: {
+                                read:  {
+                                  dataType: "json",
+                                  data: function() {
+                                        var param = {
+
+                                            "q":7,
+                                            "idSecao": app.enfermariaservice.viewModel.secao,
+                                            "setorId": 2
+    
+                                        };
+                                      return param;
+                                    }
+                                }
+                           },            
+                            schema: {
+                                parse: function (response) {
+                                    if (response)
+                                    {
+                                        
+                                        return response;
+                                    }
+                                    else
+                                        return [];
+                                
+                            }
+                          },
+                           sortable:true,
+                          sort: { field: "TEMPO_ESPERA", dir: "desc" }
+                    }),
         onUpdate: function() 
         {
          

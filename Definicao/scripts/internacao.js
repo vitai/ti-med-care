@@ -1,47 +1,34 @@
 (function(global){
    var InternaModel,
-    app = global.app = global.app || {};
-    
-     var dadoIndicadores = [{DESCRICAO:"Taxas de ocupação",QTA:100},
-                    {DESCRICAO:"Taxas de óbito",QTA:100},
-                     {DESCRICAO:"Índice de renovação",QTA:100},
-                      {DESCRICAO:"Leito Dia",QTA:100},
-                      {DESCRICAO:"Paciente Dia",QTA:100}];   
-    
-      var Leitos = [{LEITO:"Enfermaria I",OCUPAÇÃO:3}]; 
-    
-    
+    app = global.app || {};
+
     InternaModel = kendo.data.ObservableObject.extend({
-         onViewShow: function(e)
-        {  
-            this.dataSource.read({ data: dadoIndicadores});
-            this.dataSourceLeito.read({ data: Leitos});
+        onBeforeShowView: function(e)
+        {
+            this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=19&setorId=2";   
+            console.log(app.unidadeUrl);   
+            this.refresh();
         },
          onInit:function()
         {
             app.currentViewModel = this;
+           
         },
         refresh: function()
         {
-            this.dataSource.read({ data: dadoIndicadores});   
-            this.dataSourceLeito.read({ data: Leitos});
+             this.dataSourceLeito.read();
         },
-         dataSource: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                   
-                }
-            }
-             }), 
         dataSourceLeito: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
+            transport:
+            { 
+                read: 
+                { 
+                    dataType: "json" 
                 }
-            }
+            },
+          
+            sortable:true,
+            sort: { field: "DESCRICAO", dir: "asc" }
              }), 
         onUpdate: function() 
         {
