@@ -5,7 +5,7 @@
     app.usuarioSettings = [];
     app.permissoes = null;
     app.currentViewModel = null;
-    app.TotalUnidades = 1;
+    app.TotalUnidades = 2;
    
     app.Login = function(userSettings){
         if(app.TotalUnidades == 1){
@@ -36,7 +36,7 @@ document.addEventListener("deviceready",function(){
         app.unidadeCorrente = null;
         app.currentViewModel = null;
     
- app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/prontuario/SumarioView.html'});
+ app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/login.html'});
     
 }, false);           
 })(window);
