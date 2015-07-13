@@ -56,7 +56,7 @@
                             }
                           },
                            sortable:true,
-                          sort: { field: "TEMPO_ESPERA", dir: "desc" }
+                   
                     }),
         onUpdate: function() 
         {
