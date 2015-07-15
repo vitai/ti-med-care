@@ -15,7 +15,7 @@
              console.log(e.view.params.value);    
              console.log(e.view.params.secao);    
             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
-           this.refresh();   
+            this.refresh();   
             
         },
         onInit:function()
@@ -33,7 +33,6 @@
                                   dataType: "json",
                                   data: function() {
                                         var param = {
-
                                             "q":7,
                                             "idSecao": app.enfermariaservice.viewModel.secao,
                                             "setorId": 2

@@ -5,7 +5,7 @@
     InternaModel = kendo.data.ObservableObject.extend({
         onBeforeShowView: function(e)
         {
-            this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=19&setorId=2";   
+            this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO;   
             console.log(app.unidadeUrl);   
             this.refresh();
         },

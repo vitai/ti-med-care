@@ -1,109 +1,85 @@
 (function(global){
    var EmergenciaModel,
-    app = global.app = global.app || {};
-    
- var Emergencia = [
-    {DESCRICAO:"Permanencia Maior 24h:",QTA:20},
-    {DESCRICAO:"Registrados em 24h:",QTA:300}];
-    
-  var Emergencia2 = [  
-    {DESCRICAO:"Classificação de Risco Adulto:",QTA:3},
-    {DESCRICAO:"Classificação de Risco Pediatrico:",QTA:2}];
-    
-  var Emergencia3 = [   
-    {DESCRICAO:"Amarelo:",QTA:2},
-    {DESCRICAO:"Vermelha:",QTA:2},
-    {DESCRICAO:"Azul:",QTA:2}];
-    
-  var Emergencia4 = [   
-    {DESCRICAO:"Verde:",QTA:2},
-    {DESCRICAO:"Amarelo:",QTA:2},
-    {DESCRICAO:"Vermelha:",QTA:2}];
-    
-   var Emergencia5 = [{DESCRICAO:"Exame Laboratorial:",QTA:23.12},
-    {DESCRICAO:"Exame de Imagem:",QTA:4.50},
-    {DESCRICAO:"Cuidados:",QTA:2.10},
-    {DESCRICAO:"Medicamentos:",QTA:11.23}];   
-    
-  var Emergencia6 = [{DESCRICAO:"Observação Adulto:",QTA:2},
-    {DESCRICAO:"Observação Pediatrica:",QTA:2},
-    {DESCRICAO:"Sala Verde:",QTA:1},
-    {DESCRICAO:"Sala Amarela:",QTA:2},
-    {DESCRICAO:"Sala Vermelha:",QTA:3}
-    ];   
-    
-
+   app = global.app || {};
 
     EmergenciaModel = kendo.data.ObservableObject.extend({
-        onViewShow: function(e)
+         observacoes: [],
+         onInit:function()
         {
-         this.dataSource.read({ data: Emergencia  });
-         this.dataSourceFila.read({ data: Emergencia2  });
-         this.dataSourceRiscoPediatrico.read({ data: Emergencia3  }); 
-         this.dataSourceRiscoAdulto.read({ data: Emergencia4  });
-         this.dataSourceObs.read({ data: Emergencia6  });
-         this.dataSourcePres.read({ data: Emergencia5  }); 
-         },
+            app.currentViewModel = this;
+        },
         refresh: function()
         {
-         this.dataSource.read({ data: Emergencia  });
-         this.dataSourceFila.read({ data: Emergencia2  });
-         this.dataSourceRiscoPediatrico.read({ data: Emergencia3  }); 
-         this.dataSourceRiscoAdulto.read({ data: Emergencia4  });
-         this.dataSourceObs.read({ data: Emergencia6  });
-         this.dataSourcePres.read({ data: Emergencia5  }); 
-        },dataSource: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
-        }),dataSourceObs: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
+            this.dataSourcePaciente.read();
+            this.dataSourceClass.read();
+//          this.dataSourceLeito.read();
+            this.dataSourceCons.read();
+            this.dataSourcePres.read();
+            
+        },dataSourcePaciente: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json" } 
+            },
+            sortable:true,      
+        }),dataSourceClass: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json" } 
+            },
+            sortable:true,  
+        }),dataSourceLeito: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json" } 
+            },
+            sortable:true,  
+        }),dataSourceCons: new kendo.data.DataSource({
+            transport: { read:  { dataType: "json" } },
+            group: "ORDEM",
+            sortable:true,
+            sort: { field: "ORDEM", dir: "asc" },  
         }),dataSourcePres: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
-        }),dataSourceRiscoAdulto: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
-        }),dataSourceRiscoPediatrico: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
-        }),dataSourceFila: new kendo.data.DataSource({
-                transport: {
-               read: function(operation) {
-                var data = operation.data.data || [];
-                operation.success(data);
-                }
-            }
+            transport: { read:  { dataType: "json" } 
+            },
+            sortable:true,  
         }),  
+         onListDataboud: function(e) {
+            var dataView = e.sender.dataSource.view();
+            var groups = $(".listHeader");
+            for (var i = 0; i < groups.length; i++) {
+                var grupo = dataView[i].items[0].GRUPO;
+                
+                $(groups[i]).html(grupo);
+                var obs = dataView[i].items[0].OBSERVACAO;
+                this.observacoes[i] = obs.trim();
+                var iconHelp = $('[data-id='+dataView[i].items[0].ORDEM+']')
+                if (obs && obs.trim()!='')
+                    {
+                        iconHelp.show();                        
+                    }
+                else
+                    {
+                        iconHelp.html('');
+                    }
+                
+            }
+        },
         onUpdate: function() 
         {
             this.refresh();
-        }
-        
+        },
+        showHelp: function(e)
+        {
+            
+        },
+        onBeforeShowView: function(e)
+         {    
+            this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourcePres.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=16&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourceCons.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=17&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourceClass.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=18&setorId=" + app.unidadeCorrente.CODIGO;
+            console.log(app.unidadeUrl + "ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO);
+            this.refresh();
+         }      
     });
     
     app.emergenciaservice  = {
        viewModel : new EmergenciaModel()
     }; 
-  
+    
 })(window);

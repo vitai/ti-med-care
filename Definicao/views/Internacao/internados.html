@@ -16,14 +16,16 @@
 <div  class="helpIcon2"></div>    
 <span style="display:inline-block;margin10px">Ocupação:</span>
 <div style="display:inline-block;margin10px" data-bind="html:value"></div>   
+
     
  <ul data-role="listview" data-style="inset"  data-template="internadosTemplate" data-bind="source: dataSource">
-</ul>   
+</ul>
+    
 </div>   
 </div>
 
 <script type="text/x-kendo-template" id="internadosTemplate">
- <a href='views/Menu/Internacao/detalheinternacao.html?paciente=#:data.NMCIDADAO#&entrada=#:data.BOE_DATAENTRADA#&idade=#:data.IDADE#&sexo=#:data.SEXO#' data-role="list-view-link" >
+ <a href='views/Internacao/detalheinternacao.html?paciente=#:data.NMCIDADAO#&entrada=#:data.BOE_DATAENTRADA#&idade=#:data.IDADE#&sexo=#:data.SEXO#' data-role="list-view-link" >
 <div style="display:inline-block">#: data.NMCIDADAO #</div></br>   
 <div style="display:inline-block">Sexo:</div><div style="display:inline-block">#: data.SEXO #</div>
 <div style="display:inline-block">Idade:</div><div style="display:inline-block">#: data.IDADE #</div> 

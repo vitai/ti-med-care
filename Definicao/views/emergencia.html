@@ -1,0 +1,83 @@
+<div   data-role="view"  data-title="Emergencia" data-layout="main"
+    data-model="app.emergenciaservice.viewModel" data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"  >
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+             <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+    
+    <div class="list-view-wrapper">
+        
+    
+        <div  class="helpIcon2" onclick="showHelpText('teste')" ></div>
+        <h2 class="listHeader2" >PACIENTES</h2>
+        <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePaciente"></ul>
+    </div>
+   
+   <div class="list-view-wrapper">  
+    <div  class="helpIcon2" onclick="showHelpText('teste')" ></div>
+    <h2 class="listHeader2" >FILA CLASSIF. DE RISCO</h2>
+    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourceClass"></ul>
+     
+    </div> 
+      <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
+     
+    
+        <div class="list-view-wrapper">
+        <div  class="helpIcon2" onclick="showHelpText('teste')" >
+        </div><h2 class="listHeader2" >PRESCRIÇÕES</h2>
+        <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
+    </div>
+    
+</div>
+       
+<script type="text/x-kendo-template" id="headerTemplate">
+
+    
+    <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
+    
+    </div><h2 class="listHeader" >${value}</h2>
+    
+</script>
+
+<script type="text/x-kendo-template" id="situacaoTemplate">
+
+     #if(data.LINKTO && data.VALOR > 0){#
+         
+         <a href='' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+         </a>
+     #}else{#
+     
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+     #}#
+      
+     
+</script>
+
+<script type="text/x-kendo-template" id="contactsTemplate">
+
+     #if(data.LINKTO && data.VALOR > 0){#
+     
+         
+         <a href='' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+         </a>
+     
+     #}else if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
+
+        <a href='' data-role="list-view-link" >
+         <div style="display:inline-block">#: data.DESCRICAO #:</div> <div style="display:inline-block; float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+         </a>
+     #}else{#
+     
+         <div style="display:inline-block">#: data.DESCRICAO #:</div>
+         <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></div>
+     #}#
+      
+     
+</script>
