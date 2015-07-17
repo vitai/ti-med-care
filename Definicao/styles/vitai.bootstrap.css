@@ -1,0 +1,141 @@
+body
+{
+	background-color: rgba(242,242,242, 1);
+}
+
+.panel-heading
+{
+	color: rgba(158, 159, 163, 1) !important;
+	background-color: white !important;						
+	font-weight: bold;
+  	display: block;
+	font-size: small;
+	line-height: 1.3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.vt-panel-heading img, .panel-heading img
+{
+	margin-right: 5p;
+}
+
+.vt-panel-heading
+{
+	color: rgba(158, 159, 163, 1);
+	background-color: rgba(242,242,242, 1);
+	padding: 10px 15px;
+	border-bottom: 1px solid rgba(158, 159, 163, .4);
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	font-weight: bold;
+ 	display: block;
+	font-size: small;
+	line-height: 1.3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.vt-lista-evento li.nurse48 {
+    background-image: url('../styles/images/saude/Nurse48.png');
+ }
+.vt-lista-evento li{
+	
+	background-repeat: no-repeat;
+	background-position: 0px center; 
+	padding-left: 70px; 
+}
+.imgDetalhe{
+  	background-color: rgba(242,242,242, 1);
+			padding: 10;
+			border-radius: 15px;
+}
+.vt-titulo-evento
+{
+	color: rgba(50, 154, 194, 0.9);
+	font-weight: bold;
+    display: block;
+    font-size: small;
+	line-height: 1.3em;
+}
+.vt-data-evento{
+  font-size: 0.8571em;
+		  color: #999;
+}
+.vt-profissional-evento
+{
+	font-style: italic;
+	display: block;
+	font-size: 90%;
+			margin-bottom: 0.8571em;
+}
+.vt-lista-evento{
+	list-style-type: none; 
+	padding-left:5px;
+}
+
+
+
+.imgEnfermeira24
+{
+	
+}
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+
+
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+        body { font-size: 18px !important; }
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+        body { font-size: 16px !important; }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+        body { font-size: 14px !important; }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+        body { font-size: 12px !important; }
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+        body { font-size: 10px !important; }
+        .vt-lista-evento li.nurse48 {
+            background-image: url('../styles/images/saude/Nurse24.png');
+         }
+        .vt-lista-evento li{
+            margin-left: -5px;
+            padding-left: 40px;        
+        }
+    }
+

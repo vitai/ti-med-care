@@ -1,6 +1,9 @@
 .km-drawer-button:before, .km-drawer-button:after  { content: "\E222"; }
 
-.km-flat, .km-content { background: #FFFFFF !important;}
+.km-flat, .km-content { 
+    background-color: rgba(242,242,242, 1) !important;
+}
+
 
 
 .vitailogo
