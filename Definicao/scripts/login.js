@@ -46,7 +46,7 @@ LoginModel = kendo.data.ObservableObject.extend({
               return;
           }
            var dataTemp = retornoErro;
-           if (this.username == "teste" && this.password == "teste123")
+           if (this.username == ("Teste") || ("teste") && this.password == ("teste123") || ("Teste123"))
            {
                dataTemp =  Unidades;
                app.application.navigate('views/Menu.html');   
