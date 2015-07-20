@@ -3,9 +3,16 @@ body
 	background-color: rgba(242,242,242, 1);
 }
 
-.km-header, .km-navbar
+.control-label, .km-list h4
 {
-    height: 50px;
+    color: rgba(50, 154, 194, 0.9) !important;
+    
+}
+
+.btn-primary
+{
+    background-color: rgba(50, 154, 194, 0.9) !important;
+    
 }
 .panel-heading
 {
@@ -13,7 +20,7 @@ body
 	background-color: white !important;						
 	font-weight: bold;
   	display: block;
-	font-size: small;
+	
 	line-height: 1.3em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -33,7 +40,7 @@ body
 	border-top-left-radius: 3px;
 	font-weight: bold;
  	display: block;
-	font-size: small;
+	
 	line-height: 1.3em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -152,27 +159,27 @@ body
 
     /* Large Devices, Wide Screens */
     @media only screen and (max-width : 1200px) {
-        body { font-size: 18px !important; }
+       /* body { font-size: 18px !important; }*/
     }
 
     /* Medium Devices, Desktops */
     @media only screen and (max-width : 992px) {
-        body { font-size: 16px !important; }
+        /*body { font-size: 16px !important; }*/
     }
 
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
-        body { font-size: 14px !important; }
+        /*body { font-size: 14px !important; }*/
     }
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (max-width : 480px) {
-        body { font-size: 12px !important; }
+        /*body { font-size: 12px !important; }*/
     }
 
     /* Custom, iPhone Retina */ 
     @media only screen and (max-width : 320px) {
-        body { font-size: 10px !important; }
+       /* body { font-size: 10px !important; }*/
         .vt-lista-evento li.nurse48 {
             background-image: url('../styles/images/saude/Nurse24.png');
          }

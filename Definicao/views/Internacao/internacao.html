@@ -22,26 +22,25 @@
    </div>-->
     
 <div class="list-view-wrapper">
-<div style="margin:5px" class="helpIcon2"></div>
-<h2 class="listHeader2">Ocupação de Leitos</h2>
-  <ul data-auto-bind="false"  data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
-        </ul>   
+    <div style="margin:5px" class="helpIcon2"></div>
+        <div class="vt-panel-heading" >Ocupação de Leitos</div>
+          <ul data-auto-bind="false"  data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
+          </ul>   
     </div>   
 
-   </div>
+ </div>
 
 
 <script type="text/x-kendo-template" id="enfermariaTemplate">   
      #if(data.VALOR[0] > 0){#
     <a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#' data-role="list-view-link" >
-    <div style="display:inline-block">#:data.DESCRICAO#</div><div style="display:inline-block;float:right; margin-right:20px">
-    <b>#:data.VALOR#</b> 
-    </div>  
+    <h4>#:data.DESCRICAO#<br/>
+         <small>#:data.VALOR#</small> </h4>
      </a>   
     #}else{#
-    <div style="display:inline-block">#:data.DESCRICAO#</div><div style="display:inline-block;float:right; margin-right:20px">
-    <b>#:data.VALOR#</b> 
-    </div>              
+    <h4>#:data.DESCRICAO#<br/>
+    <small>#:data.VALOR#</small> 
+    </h4>              
          #}#    
 </script>    
     
