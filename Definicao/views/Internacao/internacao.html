@@ -31,11 +31,17 @@
    </div>
 
 
-<script type="text/x-kendo-template" id="enfermariaTemplate">
-<a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#' data-role="list-view-link" >
-<div style="display:inline-block">#:data.DESCRICAO#</div><div style="display:inline-block;float:right; margin-right:20px">
+<script type="text/x-kendo-template" id="enfermariaTemplate">   
+     #if(data.VALOR[0] > 0){#
+    <a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#' data-role="list-view-link" >
+    <div style="display:inline-block">#:data.DESCRICAO#</div><div style="display:inline-block;float:right; margin-right:20px">
     <b>#:data.VALOR#</b> 
     </div>  
- </a>   
+     </a>   
+    #}else{#
+    <div style="display:inline-block">#:data.DESCRICAO#</div><div style="display:inline-block;float:right; margin-right:20px">
+    <b>#:data.VALOR#</b> 
+    </div>              
+         #}#    
 </script>    
     
