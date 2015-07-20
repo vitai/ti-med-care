@@ -3,7 +3,7 @@ var LoginModel,
   app = global.app = global.app || {};
     
    var Unidades = [{STATUS:"OK",UNIDADES:[
-                { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1},
+                //{ UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1},
                { UNIDADEID:2, URL:"http://177.153.18.165:8081/heetshl/", DESCRICAO:"HOSPITAL DE TRAUMA", CODIGO:2 }]
  }];  
 

@@ -3,6 +3,10 @@ body
 	background-color: rgba(242,242,242, 1);
 }
 
+.km-header, .km-navbar
+{
+    height: 50px;
+}
 .panel-heading
 {
 	color: rgba(158, 159, 163, 1) !important;
@@ -36,11 +40,17 @@ body
 .vt-lista-evento li.nurse48 {
     background-image: url('../styles/images/saude/Nurse48.png');
  }
+ 
+ .vt-lista-evento li.doctor48 {
+    background-image: url('../styles/images/saude/Doctor48.png');
+ }
+ 
 .vt-lista-evento li{
 	
 	background-repeat: no-repeat;
 	background-position: 0px center; 
 	padding-left: 70px; 
+	margin-bottom: 5px;
 }
 .imgDetalhe{
   	background-color: rgba(242,242,242, 1);
@@ -51,9 +61,10 @@ body
 {
 	color: rgba(50, 154, 194, 0.9);
 	font-weight: bold;
-    display: block;
-    font-size: small;
-	line-height: 1.3em;
+    
+    /*font-size: 150%;*/
+	line-height: 1.7em;
+	
 }
 .vt-data-evento{
   font-size: 0.8571em;
@@ -69,13 +80,45 @@ body
 .vt-lista-evento{
 	list-style-type: none; 
 	padding-left:5px;
+	background-color: transparent !important;
+	border-color: transparent !important;
+		-webkit-box-shadow: inset 0 0 0; 
+  	box-shadow: inset 0 0 0 ;
+}
+.vt-lista-evento-resumido
+{
+	
+	background-color: transparent !important;
+	border-color: transparent !important;
+	display: block;
+  
+	-webkit-box-shadow: inset 0 0 0; 
+  	box-shadow: inset 0 0 0 ;
+	
+}
+
+.vt-nome-paciente
+{
+	color: rgba(50, 154, 194, 0.7);
+	font-weight: bold;
+    display: block;
+    font-size: 120%;
+}
+
+.vt-info-paciente
+{
+    font-size: 120%;
+    padding: 2px;
 }
 
 
 
-.imgEnfermeira24
+.imgMedicamento
 {
-	
+    background-image: url('../styles/images/saude/Drugs Prescription 24.png');
+    width:24px;
+    height: 24px;
+    display: inline-block;
 }
 
     /* Custom, iPhone Retina */ 
@@ -133,6 +176,9 @@ body
         .vt-lista-evento li.nurse48 {
             background-image: url('../styles/images/saude/Nurse24.png');
          }
+		 .vt-lista-evento li.doctor48 {
+		    background-image: url('../styles/images/saude/Doctor24.png');
+		 }         
         .vt-lista-evento li{
             margin-left: -5px;
             padding-left: 40px;        
