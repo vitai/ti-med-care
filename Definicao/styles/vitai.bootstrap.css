@@ -3,7 +3,7 @@ body
 	background-color: rgba(242,242,242, 1);
 }
 
-.control-label, .km-list h4
+.control-label, .km-list h4, .vt-lista-evento-resumido h4, .imgDetalhe h4
 {
     color: rgba(50, 154, 194, 0.9) !important;
     
@@ -13,6 +13,11 @@ body
 {
     background-color: rgba(50, 154, 194, 0.9) !important;
     
+}
+
+.vt-lista-evento .km-listview-link:after
+{
+    right: 2rem !important;
 }
 .panel-heading
 {
@@ -46,10 +51,17 @@ body
 }
 .vt-lista-evento li.nurse48 {
     background-image: url('../styles/images/saude/Nurse48.png');
+    background-repeat: no-repeat;
  }
  
  .vt-lista-evento li.doctor48 {
     background-image: url('../styles/images/saude/Doctor48.png');
+     background-repeat: no-repeat;
+ }
+ 
+.vt-lista-evento li.Chemicals48 {
+    background-image: url('../styles/images/saude/Chemicals48.png');
+     background-repeat: no-repeat;
  }
  
 .vt-lista-evento li{
@@ -61,13 +73,13 @@ body
 }
 .imgDetalhe{
   	background-color: rgba(242,242,242, 1);
-			padding: 10;
-			border-radius: 15px;
+	  padding: 3px;
+	  border-radius: 15px;
 }
 .vt-titulo-evento
 {
 	color: rgba(50, 154, 194, 0.9);
-	font-weight: bold;
+	
     
     /*font-size: 150%;*/
 	line-height: 1.7em;
@@ -182,13 +194,20 @@ body
        /* body { font-size: 10px !important; }*/
         .vt-lista-evento li.nurse48 {
             background-image: url('../styles/images/saude/Nurse24.png');
+            
          }
 		 .vt-lista-evento li.doctor48 {
 		    background-image: url('../styles/images/saude/Doctor24.png');
+          
 		 }         
         .vt-lista-evento li{
             margin-left: -5px;
             padding-left: 40px;        
         }
+        .vt-lista-evento li.Chemicals48 {
+            background-image: url('../styles/images/saude/Chemicals24.png');
+            background-repeat: no-repeat;
+         }
+        
     }
 

@@ -1,0 +1,29 @@
+<div data-role="view"data-model="app.resultadoExameService.viewModel"
+     data-layout="main" data-title="Sumário"  data-bind="events: {show:onViewShow}" >
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="vt-panel-heading">
+    <h4><span >RESULTADO DE EXAMES DE LABORATÓRIO</span><br />
+        <small><span data-bind="html:dataResultado"></span></small>
+    </h4>
+    </div>
+    <div class="panel-body">
+        <div data-auto-bind="false" class="vt-lista-evento-resumido" data-role="listview" id="grid" data-bind="source: dataSource" data-template="templateResultado" ></div>
+    </div>
+
+</div>
+
+ <script type="text/x-kendo-template" id="templateResultado">
+        
+     <h5 style="display:inline-block"><span data-bind="html:EXAMETIPOITEMNOME"></span> - <span data-bind="html:EXAMETIPOSUBEXAMENOME"></span></h5>
+     <h4 style="display:inline-block"><span data-bind="html:RESULTADO"></span></h4>
+        	
+ </script>

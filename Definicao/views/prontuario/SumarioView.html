@@ -1,117 +1,123 @@
 <div data-role="view"data-model="app.sumarioService.viewModel"
-     data-layout="main" data-title="Sumário" >
-  
-      
+     data-layout="main" data-title="Sumário"  data-bind="events: {show:onViewShow}" >
+
     <div data-role="header">
-      <div data-role="navbar">
-          <div >
-             <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
-              <span data-role="view-title" style="line-height:1.8em"></span>
-          </div>
-      </div>
-    </div> 
-    
+        <div data-role="navbar">
+            <div >
+                <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+            </div>
+        </div>
+    </div>
+
     <div data-role="content">
         <div id="view" class="container">
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-5 col-sm-2">
-                                    <img src="styles/assets/avatar.jpg" class="ra-avatar img-responsive" />
-                                </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-2">
+                                <img src="styles/assets/avatar.jpg" class="ra-avatar img-responsive" />
+                            </div>
 
-                                <div class="col-lg-7 col-sm-2">
-                                    <div class="vt-nome-paciente" data-bind="html: paciente.nome"></div>
-                                    <span class="vt-info-paciente" data-bind="html:paciente.sexo"></span>
-                                    <span class="vt-info-paciente" data-bind="html:paciente.idade"></span><span>ano(s)</span>
-                                    <div>
-                                    	<span  data-bind="html:boletim.secaoInternacao"></span>/
-                                    	<span  data-bind="html:boletim.leito"></span>
-                                    </div>
+                            <div class="col-lg-7 col-sm-10">
+                                <div class="vt-nome-paciente" data-bind="html: paciente.nome"></div>
+                                <span class="vt-info-paciente" data-bind="html:paciente.sexo"></span>
+                                <span class="vt-info-paciente" data-bind="html:paciente.idade"></span><span>ano(s)</span>
+                                <div>
+                                    <span  data-bind="html:boletim.secaoInternacao"></span>/ <span  data-bind="html:boletim.leito"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="vt-panel-heading">Diagnosticos</div>
-                        <div class="panel-body">
-                        	<div class="vt-lista-evento-resumido" data-role="listview" id="grid" data-bind="source: dataSourceDiagnostico" data-template="templateDiagnostico" ></div>	
-                        	<span data-bind="visible: noDiagnosticoRecord">Sem Registro</span>
-                        </div>
-                    </div>                 
-                    <div>
-                        <div class="vt-panel-heading">Alergias</div>
-                        <div class="panel-body">
-                        	<div class="vt-lista-evento-resumido" data-role="listview" id="grid" data-bind="source: dataSourceAlergia" data-template="templateAlergia" ></div>
-    						<span data-bind="visible: noAlergiaRecord">Sem Registro</span>
-                        </div>
-                    </div>              
                 </div>
-                <div class="col-lg-8">
-                    <div class="panel panel-default" style="min-height: 192px;" >
-                        <div class="panel-heading"><div class="imgMedicamento" ></div>Medicamentos em Uso</div>
-                        <div class="panel-body">
-                        	<ul class="vt-lista-evento-resumido" style="max-height: 200px; overflow:auto" data-role="listview" id="grid" data-bind="source: dataSourceMedicamento" data-template="templateMedicamento" ></ul>
-    						<span data-bind="visible: noMedicamentoRecord">Sem Registro</span>
-                        </div>
+                <div>
+                    <div class="vt-panel-heading">Diagnosticos</div>
+                    <div class="panel-body">
+                        <div data-auto-bind="false" class="vt-lista-evento-resumido" data-role="listview" id="grid" data-bind="source: dataSourceDiagnostico" data-template="templateDiagnostico" ></div>
+                        <span data-bind="visible: noDiagnosticoRecord">Sem Registro</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="vt-panel-heading">Alergias</div>
+                    <div class="panel-body">
+                        <div data-auto-bind="false" class="vt-lista-evento-resumido" data-role="listview" id="grid" data-bind="source: dataSourceAlergia" data-template="templateAlergia" ></div>
+                        <span data-bind="visible: noAlergiaRecord">Sem Registro</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="panel panel-default" style="min-height: 192px;"  >
+                    <div class="panel-heading">
+                        <div class="imgMedicamento" ></div>Medicamentos em Uso
+                    </div>
+                    <div class="panel-body">
+                        <ul data-auto-bind="false" class="vt-lista-evento-resumido" style="max-height: 200px; overflow:auto" data-role="listview" id="grid" data-bind="source: dataSourceMedicamento" data-template="templateMedicamento" ></ul>
+                        <span data-bind="visible: noMedicamentoRecord">Sem Registro</span>
+                    </div>
+
+                </div>
+                <div class="panel panel-default" >
+                    <div src="$link.getContextPath()/pages/images/saude/Medical History24.png" ></div>
+                    <div class="panel-heading">Eventos deste Episodio</div>
+                    <div class="panel-body">
+                        <ul data-auto-bind="false"  class="vt-lista-evento" data-role="listview" id="grid" data-bind="source: dataSourceEventos, events:{dataBound: onListDataboud, click: onListViewEventoChanged }" data-template="templateEvento" >
+                        </ul>
 
                     </div>
-                  	<div class="panel panel-default" >
-                        <div src="$link.getContextPath()/pages/images/saude/Medical History24.png" ></div><div class="panel-heading">Eventos deste Episodio</div>
-                        <div class="panel-body">
-                            <ul  class="vt-lista-evento" data-role="listview" id="grid" data-bind="source: dataSourceEventos, events:{dataBound: onListDataboud}" data-template="templateEvento" >
-                            </ul>
-
-                        </div>
-                        <div>
-                        </div>
-                    </div>                
-              
+                    <div>
+                    </div>
                 </div>
+
+            </div>
         </div>
-    </div>    
-   	<script type="text/x-kendo-template" id="templateAlergia">
-        <div>
-        	<span class="vt-titulo-evento"><span data-bind="html:TAL_NOME"></span> 
-        		- <span data-bind="html:ALG_DESCRICAO"></span>
-        		- <span data-bind="html:SEVERIDADE"></span>
-        		- <span data-bind="html:REACAO"></span>
-        		- <span data-bind="html:DESDE"></span>
-        	</span>
-        	<span class="vt-profissional-evento"> <span data-bind="html:NMUSUARIO"></span> - <span data-bind="html:PRE_DATA"></span></span>
-        </div>
-    </script>
- 	<script type="text/x-kendo-template" id="templateDiagnostico">
-        <div>
-        	<span class="vt-titulo-evento"><span data-bind="html:CHCID10"></span> - <span data-bind="html:DESCRICAO"></span></span>
-        	<span class="vt-profissional-evento"> <span data-bind="html:NMUSUARIO"></span> - <span data-bind="html:PRE_DATA"></span></span>
-        </div>
-    </script>
- 	<script type="text/x-kendo-template" id="templateMedicamento">
-        	<li class="vt-titulo-evento" data-bind="html:DESCRICAO"></li>
-    </script>
- 	<script type="text/x-kendo-template" id="templateEvento">
-		<li class="nurse48 img-responsive" >
-			<div class="imgDetalhe">
-                <span class="vt-titulo-evento" data-bind="html:DESCRICAO" ></span>
-                <span class="vt-profissional-evento" data-bind="html:NMUSUARIO" ></span>
-                <div class="vt-data-evento" data-bind="html: DATA"></div>
-            </div>                            	
-        </li>    
-    </script>
+    </div>
+    <script type="text/x-kendo-template" id="templateAlergia">
+
+        <h4 >
+            <span data-bind="html:TAL_NOME"></span>
+            - <span data-bind="html:ALG_DESCRICAO"></span>
+            - <span data-bind="html:SEVERIDADE"></span>
+            - <span data-bind="html:REACAO"></span>
+            - <span data-bind="html:DESDE"></span><br />
+            <small > <span data-bind="html:NMUSUARIO"></span> - <span data-bind="html:PRE_DATA"></span></small>
+        </h4>
     
-    
+    </script>
+    <script type="text/x-kendo-template" id="templateDiagnostico">
+        <h4>
+            <span data-bind="html:CHCID10"></span> - <span data-bind="html:DESCRICAO"></span>
+            <br />
+            <small> <span data-bind="html:NMUSUARIO"></span> - <span data-bind="html:PRE_DATA"></span> </small>
+        </h4>
+        	
+    </script>
+    <script type="text/x-kendo-template" id="templateMedicamento">
+        <li class="vt-titulo-evento" data-bind="html:DESCRICAO"></li>
+    </script>
+    <script type="text/x-kendo-template" id="templateEvento">
+        #if(data.LINKTO != '') {#
+            <a href="views/#:data.LINKTO#?idExame=#:data.CHAVE#">
+        #}#
+            <div class="imgDetalhe" >
+               <h4>
+                    <span data-bind="html:DESCRICAO"></span><br/>
+                    <small> <span data-bind="html:NMUSUARIO" ></span> - <span data-bind="html: DATA"></span></small>
+                </h4>
+            </div>
+        #if(data.LINKTO != '') {#
+            </a>
+        #}#
+    </script>
+
     <script>
     
-    	$(document).ready(function() {
-    		kendo.bind($("#view"), app.sumarioService.viewModel);
-    		app.sumarioService.viewModel.dataSource.read();
-    		//$("#grid").kendoListView();
-    		
-    	});
-    	
+        $(document).ready(function() {
+            //kendo.bind($("#view"), app.sumarioService.viewModel);
+            //app.sumarioService.viewModel.dataSource.read();
+            //$("#grid").kendoListView();
+        });    	
     </script>
-        
+
 </div>
 

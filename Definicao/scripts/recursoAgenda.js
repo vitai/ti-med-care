@@ -7,7 +7,7 @@
                          {INFOAGENDA:"Exame Imagem",QTA:30,PERCENT2:30}]; 
 
        recursoAgendaModel = kendo.data.ObservableObject.extend({
-        recurso:"",
+        recurso:null,
         onViewShow: function(e)
         {
          var that = this;

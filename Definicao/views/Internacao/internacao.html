@@ -6,7 +6,8 @@
           <div >
               <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
               <span data-role="view-title" style="line-height:1.8em"></span>
-              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>  
+              
+              <div class="helpIcon2" data-align="right" ></div>
           </div>
       </div>
     </div>       
@@ -22,18 +23,17 @@
    </div>-->
     
 <div class="list-view-wrapper">
-    <div style="margin:5px" class="helpIcon2"></div>
-        <div class="vt-panel-heading" >Ocupação de Leitos</div>
+    
+    <div class="vt-panel-heading" >Ocupação de Leitos</div>
           <ul data-auto-bind="false"  data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
           </ul>   
-    </div>   
-
+      
  </div>
 
 
 <script type="text/x-kendo-template" id="enfermariaTemplate">   
      #if(data.VALOR[0] > 0){#
-    <a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#' data-role="list-view-link" >
+    <a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricao=#:data.DESCRICAO#' data-role="list-view-link" >
     <h4>#:data.DESCRICAO#<br/>
          <small>#:data.VALOR#</small> </h4>
      </a>   

@@ -8,14 +8,15 @@
 
        consultaAgendaModel = kendo.data.ObservableObject.extend({
            consulta:"",
+           recurso:"",
            nome:"",
         onViewShow: function(e)
         {
          var that = this;
          that.set("consulta", e.view.params.consulta); 
+         that.set("recurso", e.view.params.recurso); 
          that.set("nome", e.view.params.nome); 
-         console.log(e.view.params.consulta);
-         console.log(e.view.params.nome);
+         console.log(e.view.params.recurso);
          this.dataSource.read({ data: consultaAgendas });
         },
         onInit:function()

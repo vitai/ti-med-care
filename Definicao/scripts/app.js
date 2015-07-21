@@ -8,30 +8,20 @@
     app.unidadeCorrente = null;
    
 app.Login = function(userSettings){
-var permissao = null;
-    
-for (var i = 0; i < userSettings.UNIDADES.length; i++) {
-           if (userSettings.UNIDADES[i] !== undefined) {
-                        ++permissao;
-                        console.log(permissao);
-            }
-           if(permissao <= 1){
-            app.usuarioSettings = userSettings;
-            app.permissoes = userSettings.PERMISSOES;
-            app.unidadeCorrente = userSettings.UNIDADES[0];
-            app.unidadeUrl = userSettings.UNIDADES[0].URL;
-            console.log(userSettings);
-            console.log(app.unidadeUrl);
-            console.log(app.unidadeCorrente);    
-            app.application.navigate('views/Menu.html');      
+
+
+                    app.usuarioSettings = userSettings;
+                app.permissoes = userSettings.PERMISSOES;
+
+           if(userSettings.UNIDADES.length == 1){
+               
+                app.unidadeCorrente = userSettings.UNIDADES[0];
+                app.unidadeUrl = userSettings.UNIDADES[0].URL;
+               console.log(app.unidadeUrl);
+                app.application.navigate('views/Menu.html');      
             }else{
-            app.usuarioSettings = userSettings;
-            app.permissoes = userSettings.PERMISSOES;
-            console.log(userSettings);
-            app.application.navigate('views/unidadesView.html');    
+                app.application.navigate('views/unidadesView.html');    
             }
-         
-        }
       
      }
 

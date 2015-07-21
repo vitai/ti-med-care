@@ -5,6 +5,7 @@
     EnfermariaModel = kendo.data.ObservableObject.extend({
         value:"",
         secao:"",
+        descricaoSecao:"",
          onViewShow: function(e)
         {
            
@@ -12,9 +13,9 @@
             
             that.set("secao", e.view.params.secao);
             that.set("value", e.view.params.value);
-             console.log(e.view.params.value);    
-             console.log(e.view.params.secao);    
-            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            that.set("descricaoSecao", e.view.params.descricao);
+             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            
             this.refresh();   
             
         },
@@ -38,6 +39,7 @@
                                             "setorId": 2
     
                                         };
+                                      console.log(param);
                                       return param;
                                     }
                                 }
