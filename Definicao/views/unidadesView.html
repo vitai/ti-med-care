@@ -4,15 +4,17 @@
     <div data-role="header">
       <div data-role="navbar">
           <div>  
-         <a class="nav-button" data-icon="drawer-button" data-role="backbutton" href="views/login.html" data-align="left">Voltar</a>     
+         <a class="nav-button" data-icon="drawer-button" data-role="backbutton" href="views/login.html" data-align="left"></a>     
          <span data-role="view-title" style="line-height:1.8em"></span>
           </div>
       </div>
     </div>    
 
-    <ul id="uiSituacao" data-role="listview" data-style="inset" 
+ <ul id="uiSituacao" data-role="listview" data-style="inset" 
         data-template="unidadesTemplate" data-bind="source: dataSource, events:{click: onListViewChanged }"></ul>
 </div>
+
+
 
 <script type="text/x-kendo-template" id="unidadesTemplate">
              <div>#:data.DESCRICAO#</div>
