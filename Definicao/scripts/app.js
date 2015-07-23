@@ -8,16 +8,12 @@
     app.unidadeCorrente = null;
    
 app.Login = function(userSettings){
-
-
-                    app.usuarioSettings = userSettings;
+                app.usuarioSettings = userSettings;
                 app.permissoes = userSettings.PERMISSOES;
-
            if(userSettings.UNIDADES.length == 1){
-               
                 app.unidadeCorrente = userSettings.UNIDADES[0];
                 app.unidadeUrl = userSettings.UNIDADES[0].URL;
-               console.log(app.unidadeUrl);
+                console.log(app.unidadeUrl);
                 app.application.navigate('views/Menu.html');      
             }else{
                 app.application.navigate('views/unidadesView.html');    

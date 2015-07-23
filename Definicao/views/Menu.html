@@ -1,5 +1,5 @@
 <div   data-role="view"  data-title="Menu" data-layout="main"
-        data-model="app.UnidadeService.viewModel" >
+        data-model="app.MenuService.viewModel" data-bind="events:{beforeShow:onViewShow}" >
 
     <div data-role="header">
       <div data-role="navbar">
@@ -8,30 +8,20 @@
               <span data-role="view-title" style="line-height:1.8em"></span>
           </div>
       </div>
-    </div>   
-
+    </div> 
     
-    <ul id="uiSituacao" data-role="listview" data-style="inset">
-      <li>
-             <a href='views/Agendamento/agendamentos.html' data-role="list-view-link">   
-             <h4>Agendamento<br/>
-             <small>Oferta e utilização de recursos da unidade</small></h4>
-              </a>
-      </li>
-      <li>
-             <a href='views/Internacao/internacao.html' data-role="list-view-link">   
-             <h4 >Internação<br/>   
-             <small>Ocupação e estatística de internação</small></h4>
-             </a>
-      </li>   
-      <li>
-             <a href='views/emergencia.html' data-role="list-view-link">   
-             <h4 >Emergência<br/>   
-             <small>Filas de esperas de emergência</small><h4/>
-            </a>
-      </li>  
-    </ul>
+  
+<ul id="uiSituacao" data-role="listview" data-style="inset" 
+        data-template="MenuTemplate" data-bind="source: dataSource"></ul>  
+    
 </div>
+
+<script type="text/x-kendo-template" id="MenuTemplate"> 
+         <a href='#:data.LINKTO#' data-role="list-view-link">   
+             <h4>#:data.TITULO#<br/>
+             <small>#:data.OBSERVACAO#</small></h4>
+         </a>       
+</script>
 
 
     
