@@ -36,7 +36,7 @@
                                         var param = {
                                             "q":7,
                                             "idSecao": app.enfermariaservice.viewModel.secao,
-                                            "setorId": 2
+                                            "setorId": app.unidadeCorrente.CODIGO
     
                                         };
                                       console.log(param);
