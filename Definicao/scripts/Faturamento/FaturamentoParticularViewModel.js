@@ -5,6 +5,7 @@
     app.unidadeUrl = "http://santacasadecampos.dyndns.org:8080/sits/";
     
     faturamentoParticularViewModel = kendo.data.ObservableObject.extend({
+        ValorTotal:0,
         onInit: function(e) {
             
             $(".km-list").removeClass("km-list").addClass("list-group");
@@ -68,7 +69,15 @@
           },
           schema: {
                 parse: function (response) {
-            
+                    var total = 0;
+                    console.log(response);
+                    for(var i=0;i<response.length;i++)            
+                    {
+                     total += response[i].VALOR
+                        console.log(total);
+                    }
+                        
+                    app.faturamentoParticularService.viewModel.set("ValorTotal", kendo.toString(total, "c"));                    
                     return response;
                 }
             }               
@@ -77,7 +86,6 @@
         onListDataboud: function (e) {
             var dataView = e.sender.dataSource.view();
             var groups = $(".km-list>li"); 
-            console.log(groups);
             if (groups)
                 for (var i = 0; i < groups.length; i++) {
                     var element = groups[i];

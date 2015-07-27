@@ -11,19 +11,26 @@
             </div>
         </div>
     </div>
-    <div class="demo-section k-content">
-        <div data-role="chart"
-                data-series-defaults='{ type: "pie", labels:{visible: false, template: "#= category #: \n #= kendo.format(\"{0:c}\", value)#"} }'
-                data-legend='{visible: true, position: "top"}' 
-                data-series="[{
-                                field: 'VALOR',
-                                categoryField: 'GRUPO',
-                                padding: 0
-                              }]"
+    <div class="row" style="background-color:white">
+        <div class="col-xs-7">
+            <div data-role="chart"
+                 data-series-defaults='{ type: "pie", labels:{visible: false, template: "#= category #: \n #= kendo.format(\"{0:c}\", value)#"} }'
+                 data-legend='{visible: true, position: "top"}' 
+                 data-series="[{
+                 field: 'VALOR',
+                 categoryField: 'GRUPO',
+                 padding: 0
+                 }]"
                  data-bind="source: dataSourceConsolidado",
                  style="height: 200px;" ></div>
-        
-        <div id="chart" ></div>
+
+        </div>
+        <div class="col-xs-5">
+            <div style="padding-top:100px">
+            <h6>Total faturado em julho</h6>
+            <h5 data-bind="html: ValorTotal"></h5>
+            </div>
+        </div>
     </div>
     
     <div class="list-view-wrapper">
@@ -39,25 +46,19 @@
         </ul>
 
     </div>
-    
-    
+
 </div>
 
-<script type="text/x-kendo-template" id="faturamentoParticularTemplate">   
+<script type="text/x-kendo-template" id="faturamentoParticularTemplate">
     <span class="badge">#:kendo.toString(data.VALOR, "c")#</span>
-        <h4>#:data.NOME#<br/>
-                <small>Quantidade: #:data.QUANTIDADE#</small> </h4>
-    
+    <h4>#:data.NOME#<br/>
+        <small>Quantidade: #:data.QUANTIDADE#</small> </h4>
 
 </script>
 
 <script type="text/x-kendo-template" id="faturamentoParticularConsolidadoTemplate">   
     <span class="badge">#:kendo.toString(data.VALOR, "c")#</span>
-        <h4>#:data.GRUPO#<br/>
-                <small>Quantidade#:data.QUANTIDADE#</small> </h4>
-    
-
+    <h4>#:data.GRUPO#<br/>
+        <small>Quantidade#:data.QUANTIDADE#</small></h4>
 </script>
-
-
 

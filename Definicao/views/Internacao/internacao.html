@@ -1,46 +1,46 @@
 <div data-role="view"  data-title="Internacao" data-layout="main"
-    data-model="app.internaservice.viewModel" data-bind="events: {init: onInit, beforeShow:onBeforeShowView }">
+     data-model="app.internaservice.viewModel" data-bind="events: {init: onInit, beforeShow:onBeforeShowView }">
 
     <div data-role="header">
-      <div data-role="navbar">
-          <div >
-              <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
-              <span data-role="view-title" style="line-height:1.8em"></span>
-              
-              <div class="helpIcon2" data-align="right" ></div>
-          </div>
-      </div>
-    </div>       
-    
+        <div data-role="navbar">
+            <div >
+                <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+
+                <div class="helpIcon2" data-align="right" ></div>
+            </div>
+        </div>
+    </div>
+
     <!--
-<div class="list-view-wrapper"> 
-<div  class="helpIcon2">
+    <div class="list-view-wrapper"> 
+    <div  class="helpIcon2">
+    </div>
+    <h2 class="listHeader2" >Indicadores</h2>
+    <ul id="uiSituacao2" data-role="listview" data-style="inset" 
+    data-template="indicadores" data-bind="source: dataSource">
+    </ul>
+    </div>-->
+
+    <div class="list-view-wrapper">
+
+        <div class="vt-panel-heading" >Ocupação de Leitos</div>
+        <ul data-auto-bind="false"  data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
+        </ul>
+
+    </div>
+
+    <script type="text/x-kendo-template" id="enfermariaTemplate">   
+        #if (data.VALOR[0] > 0) {#
+            <a href='views/Internacao/internados.html?value=#:data.VALOR#
+               &secao=#:data.CHAVE#
+               &descricao=#:data.DESCRICAO#' data-role="list-view-link" >
+                <h4>#:data.DESCRICAO#<br/>
+                    <small>#:data.VALOR#</small> </h4>
+            </a>   
+        #}else {#
+            <h4>#:data.DESCRICAO#<br/>
+                <small>#:data.VALOR#</small> </h4>              
+        #}#    
+    </script>
 </div>
-<h2 class="listHeader2" >Indicadores</h2>
- <ul id="uiSituacao2" data-role="listview" data-style="inset" 
-     data-template="indicadores" data-bind="source: dataSource">
-  </ul>
-   </div>-->
-    
-<div class="list-view-wrapper">
-    
-    <div class="vt-panel-heading" >Ocupação de Leitos</div>
-          <ul data-auto-bind="false"  data-role="listview" data-style="inset"  data-template="enfermariaTemplate" data-bind="source: dataSourceLeito">
-          </ul>   
-      
- </div>
-
-
-<script type="text/x-kendo-template" id="enfermariaTemplate">   
-     #if(data.VALOR[0] > 0){#
-    <a href='views/Internacao/internados.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricao=#:data.DESCRICAO#' data-role="list-view-link" >
-    <h4>#:data.DESCRICAO#<br/>
-         <small>#:data.VALOR#</small> </h4>
-     </a>   
-    #}else{#
-    <h4>#:data.DESCRICAO#<br/>
-    <small>#:data.VALOR#</small> 
-    </h4>              
-         #}#    
-</script>    
-    
