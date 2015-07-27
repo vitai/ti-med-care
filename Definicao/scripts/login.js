@@ -4,7 +4,7 @@ var LoginModel,
     
    var Unidades = [{STATUS:"OK",UNIDADES:[
                  { UNIDADEID:1,LOGO:"santacasa",URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1,
-                 MENU:[{LINKTO:"views/Agendamento/agendamentos.html", TITULO:"Agendamento", OBSERVACAO:"Oferta e utilização de recursos da unidade"},
+                 MENU:[
                    {LINKTO:"views/Internacao/internacao.html", TITULO:"Internação", OBSERVACAO:"Ocupação e estatística de internação"},
                    {LINKTO:"views/Faturamento/FaturamentoParticularView.html", TITULO:"Faturamento", OBSERVACAO:"Produção e Valores de Faturamento"}] },
 /*               { UNIDADEID:2, URL:"http://177.153.18.165:8081/heetshl/", DESCRICAO:"HOSPITAL DE TRAUMA", CODIGO:2, 

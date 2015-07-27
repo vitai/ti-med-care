@@ -10,7 +10,7 @@
 app.Login = function(userSettings){
 
 
-                    app.usuarioSettings = userSettings;
+                 app.usuarioSettings = userSettings;
                 app.permissoes = userSettings.PERMISSOES;
 
            if(userSettings.UNIDADES.length == 1){
