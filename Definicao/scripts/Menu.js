@@ -9,7 +9,7 @@
         onViewShow: function(e) {
             var that = this;
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
-            that.set("logo", app.usuarioSettings.LOGO);
+            that.set("logo", app.unidadeCorrente.LOGO);
             this.dataSource.read({ data: app.unidadeCorrente.MENU});     
         },
         dataSource: new kendo.data.DataSource({
