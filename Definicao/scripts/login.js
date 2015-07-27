@@ -2,8 +2,8 @@
 var LoginModel,
   app = global.app = global.app || {};
     
-   var Unidades = [{STATUS:"OK",LOGO:"santacasa",UNIDADES:[
-                 { UNIDADEID:1, URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1,
+   var Unidades = [{STATUS:"OK",UNIDADES:[
+                 { UNIDADEID:1,LOGO:"santacasa",URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1,
                  MENU:[{LINKTO:"views/Agendamento/agendamentos.html", TITULO:"Agendamento", OBSERVACAO:"Oferta e utilização de recursos da unidade"},
                    {LINKTO:"views/Internacao/internacao.html", TITULO:"Internação", OBSERVACAO:"Ocupação e estatística de internação"},
                    {LINKTO:"views/Faturamento/FaturamentoParticularView.html", TITULO:"Faturamento", OBSERVACAO:"Produção e Valores de Faturamento"}] },
