@@ -36,7 +36,7 @@ document.addEventListener("deviceready",function(){
         kendo.culture("pt-BR"); 
         app.currentViewModel = null;
     
- app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/Faturamento/FaturamentoParticularView.html'});
+ app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/login.html'});
     
 }, false);           
 })(window);
