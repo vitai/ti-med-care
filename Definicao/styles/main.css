@@ -18,6 +18,16 @@
     margin-right: auto;
 }
 
+
+.santacasa
+{
+    background-image: url("../styles/images/santacasa.png");
+    background-repeat: no-repeat;
+    height: 60px;
+    margin:10px;
+    width: 60px;
+}
+
 .helpIcon
 {
     background-image: url(../styles/images/help_icon.gif);
