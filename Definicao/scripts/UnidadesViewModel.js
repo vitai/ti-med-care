@@ -20,7 +20,7 @@
             console.log(e.dataItem.URL);
             app.unidadeCorrente = e.dataItem;
             app.unidadeUrl = e.dataItem.URL;
-            app.application.navigate('views/Menu.html');
+            app.application.navigate('views/MenuView.html');
         }
     
       });

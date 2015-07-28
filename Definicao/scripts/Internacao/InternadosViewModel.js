@@ -14,7 +14,8 @@
             that.set("secao", e.view.params.secao);
             that.set("value", e.view.params.value);
             that.set("descricaoSecao", e.view.params.descricao);
-             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            console.log(app.unidadeUrl + "ws/relatorio");
             
             this.refresh();   
             
@@ -50,6 +51,7 @@
                                     {
                                         
                                         return response;
+                                        console.log(response);
                                     }
                                     else
                                         return [];

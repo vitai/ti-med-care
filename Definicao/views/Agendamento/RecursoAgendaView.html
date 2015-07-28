@@ -4,7 +4,7 @@
     <div data-role="header">
       <div data-role="navbar">
           <div >
-              <a  data-role="button" data-align="left" href="views/Agendamento/agendamentos.html" data-icon="drawer-button"></a>
+              <a  data-role="button" data-align="left" href="views/Agendamento/AgendamentosView.html" data-icon="drawer-button"></a>
               <span data-role="view-title" style="line-height:1.8em"></span>
               <a class="helpIcon2" href="#" data-align="right"></a>
               
@@ -21,7 +21,7 @@
   </div>
 
 <script type="text/x-kendo-template" id="recursoAgenda"> 
- <a href='views/Agendamento/consultaAgenda.html?nome=#:data.INFOAGENDA#&consulta=#:data.QTA#' data-role="list-view-link" >
+ <a href='views/Agendamento/ConsultaAgendaView.html?nome=#:data.INFOAGENDA#&consulta=#:data.QTA#' data-role="list-view-link" >
 <div style="display:inline-block">#: data.INFOAGENDA #</div>
 <div style="display:inline-block;float:center; margin-right:20px"><b>- #:data.PERCENT2#%</b></div>
 <div style="display:inline-block;float:right; margin-right:20px"><b>#: data.QTA #</b></div>

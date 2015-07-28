@@ -18,9 +18,9 @@ app.Login = function(userSettings){
                 app.unidadeCorrente = userSettings.UNIDADES[0];
                 app.unidadeUrl = userSettings.UNIDADES[0].URL;
                console.log(app.unidadeUrl);
-                app.application.navigate('views/Menu.html');      
+                app.application.navigate('views/MenuView.html');      
             }else{
-                app.application.navigate('views/unidadesView.html');    
+                app.application.navigate('views/UnidadesView.html');    
             }
       
      }
@@ -36,7 +36,7 @@ document.addEventListener("deviceready",function(){
         kendo.culture("pt-BR"); 
         app.currentViewModel = null;
     
- app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/login.html'});
+ app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/LoginView.html'});
     
 }, false);           
 })(window);
