@@ -47,11 +47,11 @@
                            },            
                             schema: {
                                 parse: function (response) {
+                                     console.log(response);     
                                     if (response)
                                     {
                                         
                                         return response;
-                                        console.log(response);
                                     }
                                     else
                                         return [];

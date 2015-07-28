@@ -32,11 +32,9 @@
 
     <script type="text/x-kendo-template" id="enfermariaTemplate">   
         #if (data.VALOR[0] > 0) {#
-            <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#
-               &secao=#:data.CHAVE#
-               &descricao=#:data.DESCRICAO#' data-role="list-view-link" >
+       <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricao=#:data.DESCRICAO#' data-role="list-view-link" >
                 <h4>#:data.DESCRICAO#<br/>
-                    <small>#:data.VALOR#</small> </h4>
+                <small>#:data.VALOR#</small> </h4>
             </a>   
         #}else {#
             <h4>#:data.DESCRICAO#<br/>
