@@ -65,7 +65,12 @@
         {
          
            this.refresh();
+        },
+        showHelp: function(e)
+        {
+            
         }
+        
     });
 
     app.enfermariaservice  = {

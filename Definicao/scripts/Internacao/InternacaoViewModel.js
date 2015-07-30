@@ -33,6 +33,10 @@
         onUpdate: function() 
         {
             this.refresh();
+        },
+        showHelp: function(e)
+        {
+            
         }
         
     });

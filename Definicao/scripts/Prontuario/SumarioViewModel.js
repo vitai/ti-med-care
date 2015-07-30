@@ -13,17 +13,14 @@
         noAlergiaRecord:true,
         noMedicamentoRecord:true,
         onViewShow: function(e)
-        {
-           
+        {      
             var that = this;
             that.set("boeId", e.view.params.boeId);
-            
             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             this.dataSourceDiagnostico.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             this.dataSourceAlergia.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             this.dataSourceMedicamento.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             this.dataSourceEventos.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
-            
             this.refresh();   
             
         },   
@@ -31,10 +28,8 @@
         {
             this.dataSource.read();
             this.dataSourceDiagnostico.read();
-            
             this.dataSourceMedicamento.read();
             this.dataSourceEventos.read();
-            
         },
         dataSource: new kendo.data.DataSource({
             transport:
@@ -68,6 +63,7 @@
                     	   
                        }
             		   return response;
+                       console.log(response);     
                    }
                }               
              	
@@ -101,6 +97,7 @@
                     	   	app.sumarioService.viewModel.set("noDiagnosticoRecord", true);
                     	   }
               		   return eval(response);
+                         console.log(response);    
                      }
                  }               
                	
@@ -134,6 +131,7 @@
                       	   	app.sumarioService.viewModel.set("noAlergiaRecord", true);
                       	   }
                 		   return eval(response);
+                           console.log(response);   
                        }
                    }               
                  	
@@ -164,8 +162,10 @@
                            else
                         	   {
                         	   	app.sumarioService.viewModel.set("noMedicamentoRecord", true);
+                                   
                         	   }
                   		   return response;
+                             console.log(response);  
                          }
                      }               
                    	
@@ -200,6 +200,7 @@
                           	   	app.sumarioService.viewModel.set("noDiagnosticoRecord", true);
                           	   }*/
                     		   return response;
+                               console.log(response);
                            }
                        }
                        
@@ -213,7 +214,7 @@
                       if (groups)
                 	  for (var i = 0; i < groups.length; i++) {
                 		  var cssClass = dataView[i].CLASS
-                          
+
                           var element = groups[i].parentElement;
                           if (dataView[i].LINKTO.trim() != '')
                               element = groups[i].parentElement.parentElement;
@@ -229,7 +230,12 @@
                     {
                         app.application.navigate('views/' + e.dataItem.LINKTO.trim() + '?idExame=' + e.dataItem.CHAVE);
                     }
-                }
+                },
+        showHelp: function(e)
+        {
+            
+        }
+        
     });
     
     app.sumarioService = 

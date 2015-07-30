@@ -6,8 +6,7 @@
             <div >
                 <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
                 <span data-role="view-title" style="line-height:1.8em"></span>
-
-                <div class="helpIcon2" data-align="right" ></div>
+                <div class="helpIcon2" data-align="right" onclick="showHelpText('teste')" ></div>
             </div>
         </div>
     </div>
@@ -34,10 +33,8 @@
     </div>
     
     <div class="list-view-wrapper">
-
         <ul data-auto-bind="false"  data-role="listview"  data-style="inset"  data-template="faturamentoParticularConsolidadoTemplate" data-bind="source: dataSourceConsolidado, events:{dataBound:onListDataboud}">
         </ul>
-
     </div>
 
     <div class="list-view-wrapper">
@@ -46,6 +43,16 @@
         </ul>
 
     </div>
+    
+      <div data-role="modalview" id="modalview-help" style="width: 90%;">
+            <div class="helpIcon">    
+        </div>
+    <div class="btnContent">
+        <a data-role="button" onclick="closeHelp();">Fechar</a>
+    </div> 
+    <div id="modalContent">    
+    </div>  
+</div>  
 
 </div>
 
@@ -62,3 +69,20 @@
         <small>Quantidade: #:data.QUANTIDADE#</small></h4>
 </script>
 
+ 
+<script>   
+    function showHelpText(text)
+    {
+        $("#modalContent").html(text);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function showHelp(id)
+    {
+        $("#modalContent").html(app.agendaservice.viewModel.painel[id-1]);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function closeHelp()
+    {
+        $("#modalview-help").data("kendoMobileModalView").close();
+    }
+</script>  

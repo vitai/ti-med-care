@@ -6,6 +6,7 @@
             <div >
                 <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
                 <span data-role="view-title" style="line-height:1.8em"></span>
+                <div class="helpIcon2" data-align="right" onclick="showHelpText('teste')" ></div>    
             </div>
         </div>
     </div>
@@ -98,7 +99,7 @@
     <script type="text/x-kendo-template" id="templateEvento">
         #if(data.LINKTO != '') {#
             <a href="views/#:data.LINKTO#?idExame=#:data.CHAVE#">
-        #}#
+                #}#
             <div class="imgDetalhe" >
                <h4>
                     <span data-bind="html:DESCRICAO"></span><br/>
@@ -118,6 +119,33 @@
             //$("#grid").kendoListView();
         });    	
     </script>
-
+    
+    <div data-role="modalview" id="modalview-help" style="width: 90%;">
+            <div class="helpIcon">    
+        </div>
+    <div class="btnContent">
+        <a data-role="button" onclick="closeHelp();">Fechar</a>
+    </div> 
+    <div id="modalContent">    
+    </div>  
+</div>    
+    
+ 
+<script>   
+    function showHelpText(text)
+    {
+        $("#modalContent").html(text);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function showHelp(id)
+    {
+        $("#modalContent").html(app.agendaservice.viewModel.painel[id-1]);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function closeHelp()
+    {
+        $("#modalview-help").data("kendoMobileModalView").close();
+    }
+</script>  
 </div>
 

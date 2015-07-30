@@ -1,5 +1,4 @@
-   var Paciente = kendo.Class.extend({
-	    
+   var Paciente = kendo.Class.extend({    
        id:0,
        nome:'',
        sexo:'',
@@ -14,8 +13,7 @@
    
    });
    
-   var BoletimAtendimento = kendo.Class.extend({
-       
+   var BoletimAtendimento = kendo.Class.extend({   
        id:'',
        dataEntrada: null,
        dataInternacao: null,
@@ -25,9 +23,8 @@
        {
            this.dataEntrada = dataEntrada;
            this.dataInternacao = dataInternacao;
-           this.leito =leito;
-           this.secaoInternacao =secaoInternacao;
+           this.leito = leito;
+           this.secaoInternacao = secaoInternacao;
            this.id = id;
        }              
-       
    });

@@ -33,6 +33,17 @@
         <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
     </div>
     
+        
+  <div data-role="modalview" id="modalview-help" style="width: 90%;">
+            <div class="helpIcon">    
+        </div>
+    <div class="btnContent">
+        <a data-role="button" onclick="closeHelp();">Fechar</a>
+    </div> 
+    <div id="modalContent">    
+    </div>  
+</div>  
+    
 </div>
        
 <script type="text/x-kendo-template" id="headerTemplate">
@@ -81,3 +92,20 @@
       
      
 </script>
+
+<script>   
+    function showHelpText(text)
+    {
+        $("#modalContent").html(text);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function showHelp(id)
+    {
+        $("#modalContent").html(app.agendaservice.viewModel.painel[id-1]);
+        $("#modalview-help").data("kendoMobileModalView").open();
+    }
+    function closeHelp()
+    {
+        $("#modalview-help").data("kendoMobileModalView").close();
+    }
+</script>   

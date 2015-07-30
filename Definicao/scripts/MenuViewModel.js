@@ -3,7 +3,6 @@
     app = global.app  || {};
     
     Menus = kendo.data.ObservableObject.extend({
-         dataAtualizacao: "",
          descricaoUnidade: "",
          logo:"",
         onViewShow: function(e) {
