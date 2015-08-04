@@ -39,6 +39,9 @@
     <script src="scripts/Internacao/InternacaoViewModel.js"></script>
     <script src="scripts/Internacao/InternadosViewModel.js"></script>
     <script src="scripts/Emergencia/EmergenciaViewModel.js"></script> 
+    <script src="scripts/Emergencia/consultorioViewModel.js"></script>
+    <script src="scripts/Emergencia/observacaoViewModel.js"></script>  
+    <script src="scripts/Emergencia/IndicadoresViewModel.js"></script>
     <script src="scripts/Prontuario/SumarioViewModel.js"></script>
     <script src="scripts/Prontuario/ResultadoExamesView.js"></script>
     <script src="scripts/Faturamento/FaturamentoParticularViewModel.js"></script>
@@ -56,6 +59,26 @@
     </div>
     
   </div>
+  
+    <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navegação" data-views='["views/Emergencia/EmergenciaView.html"]'>
+    <div data-role="header">
+      <div data-role="navbar">
+        <span data-role="view-title"></span>
+      </div>
+    </div>
+	<ul data-role="listview">
+      <li>
+        <a href="views/UnidadesView.html">Unidades</a>
+      </li>       
+      <li>
+        <a href="views/Emergencia/EmergenciaView.html">Emergência</a>
+      </li>
+      <li>
+        <a href="views/LoginView.html">SAIR</a>
+      </li>
+    </ul>            
+  </div>    
+    
 </body>
 </html>
 

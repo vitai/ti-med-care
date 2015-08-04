@@ -10,7 +10,7 @@
 app.Login = function(userSettings){
 
 
-                 app.usuarioSettings = userSettings;
+                app.usuarioSettings = userSettings;
                 app.permissoes = userSettings.PERMISSOES;
 
            if(userSettings.UNIDADES.length == 1){
@@ -24,6 +24,12 @@ app.Login = function(userSettings){
             }
       
      }
+    
+app.Logoff = function()
+    {
+        app.permissoes = null;
+        app.usuarioSettings = [];
+    }    
 
 document.addEventListener("deviceready",function(){
         navigator.splashscreen.hide();
@@ -36,7 +42,8 @@ document.addEventListener("deviceready",function(){
         kendo.culture("pt-BR"); 
         app.currentViewModel = null;
     
- app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/LoginView.html'});
+app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/LoginView.html'});
+// app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/Emergencia/IndicadoresView.html'});
     
 }, false);           
 })(window);

@@ -30,7 +30,7 @@
                       var param = {
                           "q":32,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(2015, 6, 1), "G"),
+                          "dataInicial": kendo.toString(new Date(2015, 7, 1), "G"),
                           "dataFinal": kendo.toString(new Date(), "G")
 
                       };
@@ -58,7 +58,7 @@
                       var param = {
                           "q":33,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(2015, 6, 1), "G"),
+                          "dataInicial": kendo.toString(new Date(2015, 7, 1), "G"),
                           "dataFinal": kendo.toString(new Date(), "G")
 
                       };

@@ -1,4 +1,4 @@
-.km-drawer-button:before, .km-drawer-button:after  { content: "\E222"; }
+ .km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
 
 .km-flat, .km-content { 
     background-color: rgba(242,242,242, 1) !important;
@@ -26,11 +26,29 @@
     width: 60px;
 }
 
+
+.logo-riosaudedefasacivil
+{
+    background-image: url("../styles/images/riosaude.png");
+    background-repeat: no-repeat;
+    height: 76px;
+    width: 100px;
+}
+
+
+.logo-abbc
+{
+    background-image: url("../styles/images/logo.png");
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 130px;
+}
+
 .helpIcon
 {
     background-image: url(../styles/images/help_icon.gif);
     background-repeat: no-repeat;
-    display: none    ;
+    display: none;
     float:left;
     margin: 0 auto;    
     height: 20px;

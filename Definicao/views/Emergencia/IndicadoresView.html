@@ -1,0 +1,23 @@
+<div   data-role="view"  data-title="Emergencia" data-layout="main"
+    data-model="app.indicadoresEmergenciaService.viewModel" data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"  >
+
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+             <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+              <span data-role="view-title" style="line-height:1.8em"></span>
+          </div>
+      </div>
+    </div>    
+
+ <div id="tabstrip" data-role="tabstrip" data-bind="source: dataSource">
+         <a  data-icon="contacts">Junho</a>     
+         <a  data-icon="history">Julho</a>
+         <a  data-icon="history">Agosto</a>
+      </div>    
+</div>
+       
+  <style scoped>
+ .km-icon { display:none !important; }
+.km-android .km-tabstrip .km-state-active .km-icon {background:transparent;}
+  </style> 
