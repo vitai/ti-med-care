@@ -10,6 +10,12 @@
             </div>
         </div>
     </div>
+    
+ <div id="tabstrip" data-role="tabstrip">
+         <a  id="mesAnterior"  value="mesanterior" data-bind="html:ExibirMesAnterior"></a>     
+         <a  id="mesatual" value="mesatual" class="active" data-bind="html:ExibirMes"></a>  
+ </div>    
+    
     <div class="row" style="background-color:white">
         <div class="col-xs-7">
             <div data-role="chart"
@@ -26,7 +32,7 @@
         </div>
         <div class="col-xs-5">
             <div style="padding-top:100px">
-            <h6>Total faturado em </h6><h6 data-bind="html:ExibirMes"></h6>
+            <h6>Total faturado em </h6><h6 data-bind="html:MesFaturado"></h6>
             <h5 data-bind="html: ValorTotal"></h5>
             </div>
         </div>
