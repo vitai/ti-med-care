@@ -83,7 +83,7 @@ LoginModel = kendo.data.ObservableObject.extend({
                app.application.navigate('views/MenuView.html');   
            }
            
-       else  if(this.username == ("riosaude") || ("Riosaude") && this.password == ("rs123") || ("Rs123")){
+      if(this.username == "riosaude" && this.password == "rs123"){
                            
                dataTemp =  RioSaude;
                app.application.navigate('views/MenuView.html');     
