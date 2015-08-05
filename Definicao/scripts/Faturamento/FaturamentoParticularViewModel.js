@@ -17,6 +17,8 @@
     
     faturamentoParticularViewModel = kendo.data.ObservableObject.extend({
         ValorTotal:0,
+        mesanterior:"",
+        mesatual:"",
         onInit: function(e) {
             
             $(".km-list").removeClass("km-list").addClass("list-group");
@@ -34,14 +36,9 @@
             app.ExibirMes = kendo.toString(new Date(), "MMMM"); // Mes Atual 
             app.ExibirMesAnterior = kendo.toString(new Date(app.ano, app.mes - 2, 1), "MMMM"); // Mes Anterior
             app.MesFaturado = kendo.toString(new Date(), "MMMM");
-             
-            this.set("ExibirMes", app.ExibirMes);
-            this.set("ExibirMesAnterior", app.ExibirMesAnterior);  
-            this.set("MesFaturado", app.MesFaturado); 
-
-            //Tratamento para exibir o mes do anterior quando o mes for Janeiro.
+            
+             //Tratamento para exibir o mes do anterior quando o mes for Janeiro.
             if (app.mes == 1){
-               console.log(app.mes); 
                 app.mesAnterior = 12;
                 app.anoAnterior = app.ano - 1;
                 app.ultimoDiadoMesAnterior = (new Date(app.anoAnterior, app.mesAnterior, 0 )).getDate();    
@@ -52,6 +49,13 @@
                 app.ultimoDiadoMesAnterior = (new Date(app.anoAnterior, app.mesAnterior, 0 )).getDate();    
                 
             }
+             
+            this.mesatual = app.ExibirMes;
+            this.mesanterior = app.ExibirMesAnterior;
+            
+            this.set("ExibirMes", app.ExibirMes);
+            this.set("ExibirMesAnterior", app.ExibirMesAnterior);  
+            this.set("MesFaturado", app.MesFaturado); 
             
             console.log(app.ExibirMesAnterior);
             console.log(app.ExibirMes);
@@ -59,6 +63,30 @@
             console.log(app.ano);
             console.log(app.ultimoDiadoMes); 
         },   
+        Set : function(e){
+            if(this.mesanterior  = app.ExibirMesAnterior){
+            this.mesatual = "";
+            console.log(app.ExibirMesAnterior);
+            console.log(this.mesanterior);       
+            app.ano = kendo.toString(new Date(), "yyyy");       
+            app.mes = kendo.toString(new Date(), "MM") - 1;  
+            app.MesFaturado = kendo.toString(new Date(app.ano, app.mes - 1, 1), "MMMM");  
+            this.set("MesFaturado", app.MesFaturado);   
+            this.refresh();   
+          }
+        },
+        Set2 : function(e){
+          if(this.mesatual  = app.ExibirMes){ 
+            this.mesanterior = "";
+            console.log(app.ExibirMes);
+            console.log(this.mesatual);  
+            app.ano = kendo.toString(new Date(), "yyyy");       
+            app.mes = kendo.toString(new Date(), "MM");    
+            app.MesFaturado = kendo.toString(new Date(), "MMMM");
+            this.set("MesFaturado", app.MesFaturado);   
+            this.refresh();   
+          }   
+        },
         refresh: function() {
             this.dataSource.read();
             this.dataSourceConsolidado.read();
@@ -74,7 +102,7 @@
                       var param = {
                           "q":32,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(app.ano, app.mes -1, 1), "G"),
+                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1, 1), "G"),
                           "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1, app.ultimoDiadoMes), "G")
 
                       };
@@ -114,7 +142,6 @@
           schema: {
                 parse: function (response) {
                     var total = 0;
-                    console.log(response);
                     for(var i=0;i<response.length;i++)            
                     {
                      total += response[i].VALOR

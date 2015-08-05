@@ -12,8 +12,8 @@
     </div>
     
  <div id="tabstrip" data-role="tabstrip">
-         <a  id="mesAnterior"  value="mesanterior" data-bind="html:ExibirMesAnterior"></a>     
-         <a  id="mesatual" value="mesatual" class="active" data-bind="html:ExibirMes"></a>  
+         <a  id="mesatual" value="mesatual" class="active" data-bind="value:mesatual,click:Set2,html:ExibirMes"></a>  
+         <a  id="mesAnterior"  value="mesanterior" data-bind="value:mesanterior,click:Set,html:ExibirMesAnterior"></a>     
  </div>    
     
     <div class="row" style="background-color:white">
