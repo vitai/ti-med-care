@@ -6,7 +6,8 @@ var santacasa = [{STATUS:"OK",UNIDADES:[
       { UNIDADEID:1,LOGO:"santacasa",URL:"http://santacasadecampos.dyndns.org:8080/sits/", DESCRICAO:"SANTA CASA CAMPOS", CODIGO:1,
           MENU:[
   {LINKTO:"views/Internacao/InternacaoView.html", TITULO:"Internação", OBSERVACAO:"Ocupação e estatística de internação"},
-  {LINKTO:"views/Faturamento/FaturamentoParticularView.html", TITULO:"Faturamento", OBSERVACAO:"Produção e Valores de Faturamento"}
+  {LINKTO:"views/Faturamento/FaturamentoParticularView.html", TITULO:"Faturamento", OBSERVACAO:"Produção e Valores de Faturamento"},
+  {LINKTO:"views/CentroCirurgico/SalaCirurgicasView.html", TITULO:"Centro Cirurgico", OBSERVACAO:"Centro Cirurgico"}
           ]}]
 }];  
     

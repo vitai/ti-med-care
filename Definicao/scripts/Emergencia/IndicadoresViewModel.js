@@ -11,21 +11,12 @@
         {
             this.dataSource.read();
         },
-        dataTextField: "text",
-        dataContentField: "content",
-        dataUrlField: "url",   
-        dataImageUrlField: "imageUrl",
-        dataSpriteCssClass: "spriteCssClass",
-        dataContentUrlField: "contentUrl",  
         dataSource: new kendo.data.DataSource({
             transport: {
                 read:  { 
                     dataType: "json",
                     data: function() {
                                         var param = {
-                                            text: "Item 1",
-                                            url: "http://www.telerik.com",
-                                            content: "hello"  
                                         };
                                       console.log(param);
                                       return param;

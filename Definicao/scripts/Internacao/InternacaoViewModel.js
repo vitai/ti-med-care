@@ -1,6 +1,6 @@
 (function(global){
    var InternaModel,
-    app = global.app || {};
+    app = global.app = global.app || {};
 
     InternaModel = kendo.data.ObservableObject.extend({
         onBeforeShowView: function(e)

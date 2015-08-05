@@ -9,27 +9,22 @@
           </div>
       </div>
     </div>    
-    <table style="width:100%; background-color:white">
-        <tr>
-            <td style="width:20%" >
-              <div id="logo" data-bind="attr:{class:logo}">
-                </div>
-            </td> 
-            <td style="width:80%; text-align:center" ><h5>
-                <div data-bind="html: descricaoUnidade">
-                
-                </div> </h5>
-            </td>
-        </tr>
-    </table>
+    
+ <div class="list-view-wrapper">  
+    
+<div class="vt-panel-heading" >
+    <h4 data-bind="html:descricaoUnidade">
+    </h4>
+</div>
+</div> 
+    
     <h4 class="tituloListas">
         <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" class="divRisco20px circle inlineBlock"></div><div id="uiRisco" data-bind="html: risco" class="inlineBlock"></div><div id="uiRisco" class="inlineBlock"> - Tempo Médio (min): </div><div class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></div>
         <div class="inlineBlock" id="uiRisco" data-bind="html: meta" style="margin-left: 30px; margin-top: 7px"></div>
-        
     </h4>
     <ul data-role="listview"  data-auto-bind="false" data-style="inset" data-template="consultorioTemplate"  data-bind="source: dataSource"></ul>
 
 </div>
 <script type="text/x-kendo-template" id="consultorioTemplate">
-<div style="float:left">#: data.NMCIDADAO #:</div> <div style="float:right; margin-right:30px"><b>#: data.TEMPO_ESPERA #</b></div>
+<h4 style="float:left">#: data.NMCIDADAO #:</h4> <h4 style="float:right; margin-right:30px"><b>#: data.TEMPO_ESPERA #</b></h4>
 </script>
