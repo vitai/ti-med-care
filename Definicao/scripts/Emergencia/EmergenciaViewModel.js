@@ -98,11 +98,11 @@
         {
             this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             //this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;           
-            this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;
-            this.dataSourceClass.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=18&setorId=" + app.unidadeCorrente.CODIGO;       
-            this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO;
-            this.dataSourceCons.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=17&setorId=" + app.unidadeCorrente.CODIGO;
-            this.dataSourcePres.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=16&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourceClass.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=18&setorId=" + app.unidadeCorrente.CODIGO;       
+            this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourceCons.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=17&setorId=" + app.unidadeCorrente.CODIGO;
+            this.dataSourcePres.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=16&setorId=" + app.unidadeCorrente.CODIGO;
             this.refresh();
 
         }

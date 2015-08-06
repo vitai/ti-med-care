@@ -59,7 +59,7 @@
             else
                 that.set("tipo", "");
 
-            this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio";
+            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             that.dataSource.read()
 
         },

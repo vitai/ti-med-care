@@ -12,26 +12,26 @@ var santacasa = [{STATUS:"OK",UNIDADES:[
 }];  
     
  var RioSaude = [{STATUS:"OK", UNIDADES:[
-                { UNIDADEID:1, LOGO: "logo-riosaudedefasacivil", URL:"http://177.124.207.146:8080/sits", DESCRICAO:"CER-BARRA", CODIGO:1,MENU:[
+                { UNIDADEID:1, LOGO: "logo-riosaudedefasacivil", URL:"http://177.124.207.146:8080/sits/", DESCRICAO:"CER-BARRA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]},
-                { UNIDADEID:2, LOGO: "logo-riosaudedefasacivil", URL:"http://177.153.18.165:8095/sits", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,MENU:[
+                { UNIDADEID:2, LOGO: "logo-riosaudedefasacivil", URL:"http://177.153.18.165:8095/sits/", DESCRICAO:"UPA-SENADOR CAMARA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]},
-                { UNIDADEID:3,LOGO: "logo-riosaudedefasacivil", URL:"http://177.153.18.165:8096/sits", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,MENU:[
+                { UNIDADEID:3,LOGO: "logo-riosaudedefasacivil", URL:"http://177.153.18.165:8096//sits/", DESCRICAO:"UPA-ROCHA MIRANDA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]}]
               }];
 
     
    var ABBC = [{STATUS:"OK", UNIDADES:[
-                { UNIDADEID:1,LOGO: "logo-abbc", URL:"http://upasantarita.dyndns.info:8080/santarita", DESCRICAO:"UPA-SANTA RITA", CODIGO:1,MENU:[
+                { UNIDADEID:1,LOGO: "logo-abbc", URL:"http://upasantarita.dyndns.info:8080/santarita/", DESCRICAO:"UPA-SANTA RITA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]},
-                { UNIDADEID:2,LOGO: "logo-abbc", URL:"http://upaguarabira.no-ip.org:8080/sits", DESCRICAO:"UPA-GUARABIRA", CODIGO:1,MENU:[
+                { UNIDADEID:2,LOGO: "logo-abbc", URL:"http://upaguarabira.no-ip.org:8080/sits/", DESCRICAO:"UPA-GUARABIRA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]},
-                { UNIDADEID:3,LOGO: "logo-abbc", URL:"http://179.188.2.93:8080/sits", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1,MENU:[
+                { UNIDADEID:3,LOGO: "logo-abbc", URL:"http://179.188.2.93:8080/sits/", DESCRICAO:"UPA-BRANGANÇA", CODIGO:1,MENU:[
                    {LINKTO:"views/Emergencia/EmergenciaView.html", TITULO:"Emergência", OBSERVACAO:"Emergência Hospitalar"
                    }]}]          
    }]; 
