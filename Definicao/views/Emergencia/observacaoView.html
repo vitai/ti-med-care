@@ -20,19 +20,20 @@
 </div> 
     
     <h4 class="tituloListas">
-        <div data-bind="html: titulo"></div><br /><div  class="inlineBlock"> Tempo Médio (d): </div><div class="inlineBlock"  data-bind="html: media"></div>
+        <div data-bind="html: titulo"></div><br /><div  class="inlineBlock">Tempo Médio (d):</div><span class="inlineBlock"  data-bind="html: media"></span>
+
     </h4>
     <ul data-role="listview" data-style="inset" data-template="observacaoTemplate"  data-bind="source: dataSource"></ul>
 
 </div>
 <script type="text/x-kendo-template" id="observacaoTemplate">
-<h4 style="font-weight:bold">#: data.NMCIDADAO #</h4> 
-<small>
-    <h4 style="display:inline">Sexo:</h4><h4 style="display:inline">#: data.SEXO #</h4>
-    <h4 style="display:inline"> - Idade:</h4>  <h4 style="display:inline">#: data.IDADE #</h4> <br />
-    <h4 style="display:inline">Tempo de Permanencia:</h4>  <h4 style="display:inline">#: data.DATEDIFF #d</h4> 
-    <!--<div style="display:inline"> - Entrada:</div>  <div style="display:inline">#: data.BOE_DATAENTRADA #</div> -->
+<h6 style="font-weight:bold">#: data.NMCIDADAO #</h6> 
+    
+<h5 style="display:inline">Sexo:</h5><h5 style="display:inline">#: data.SEXO #</h5>
+    <h5 style="display:inline">Idade:</h5><h5 style="display:inline">#: data.IDADE #</h5> <br />
+    <h5 style="display:inline">Tempo de Permanencia:</h5><h5 style="display:inline">#: data.DATEDIFF #d</h5> 
+
 </small>
-<!--<div> <div style="display:inline">#: data.DIAGNOSTICO #</div> </div>--> 
+
 
 </script>

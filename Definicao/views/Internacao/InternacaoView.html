@@ -3,8 +3,8 @@
 
     <div data-role="header">
         <div data-role="navbar">
-            <div >
-                <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+            <div>
+               <a data-role="button" data-align="left" href="views/MenuView.html">Voltar</a>     
                 <span data-role="view-title" style="line-height:1.8em"></span>
             </div>
         </div>
@@ -43,7 +43,7 @@
     <script type="text/x-kendo-template" id="enfermariaTemplate">   
         #if (data.VALOR[0] > 0) {#
        <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricao=#:data.DESCRICAO#' data-role="list-view-link" >
-                <h4>#:data.DESCRICAO#<br/>
+                <h4>#:data.DESCRICAO# (TM: #: data.MEDIA # h)<br/>
                 <small>#:data.VALOR#</small> </h4>
             </a>   
         #}else {#

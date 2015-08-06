@@ -1,91 +1,83 @@
 
 <div   data-role="view"  data-title="Situação" data-layout="main" 
     data-model="app.situacaoService.viewModel" 
-    data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"   >
+    data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"  data-init="mobileListViewPullToRefresh" >
      
     <div data-role="header">
       <div data-role="navbar">
           <div >
-              <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
+			  <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
               <span data-role="view-title" style="line-height:1.8em"></span>
               <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>
               
           </div>
       </div>
-    </div>    
+    </div>  
     
-    <!--
-    <table style="width:100%; background-color:white">
-        <tr>
-            <td style="width:20%" >
-              <div id="logo" data-bind="attr:{class:logo}">
-                </div>
-            </td> 
-            <td style="width:80%; text-align:center" ><h5><div data-bind="html: descricaoUnidade">
-                
-                </div> 
-                </h5>           
-            </td>
-        </tr>
-    </table>
-    -->
-    
- <div class="list-view-wrapper">  
-    
-<div class="vt-panel-heading" >
-    <h4 data-bind="html:descricaoUnidade">
+   <div class="list-view-wrapper">  
+    <small><h5 style="display:inline-block;margin:19px;float:right;" data-bind="text: dataAtualizacao"></h5></small>       
+    <div class="vt-panel-heading" >
+    <h4 data-bind="html: descricaoUnidade">
     </h4>
-</div>
-</div> 
-</br>   
-<div class="list-view-wrapper">
-<div  class="helpIcon2" onclick="showHelpText('Permanência a maior 24H: Pacientes que estão na unidade a mais de 24 horas, e não foram registrados como em Observação.' + 
-        '</br> </br> Registro em 24H: Número de pacientes registrados nas últimas 24 horas')" >
-</div>      
-      <h2 class="listHeader2" >PACIENTES</h2>    
+       </div>
+   </div>     
+   </br>
+    <div class="list-view-wrapper">
+        <div  class="helpIcon2" onclick="showHelpText('Permanência a maior 24H: Pacientes que estão na unidade a mais de 24 horas, e não foram registrados como em Observação.' + 
+        '</br> </br> Registro em 24H: Número de pacientes registrados nas últimas 24 horas'
+            )" >
+        </div><h2 class="listHeader2" >PACIENTES</h2>
         <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePaciente"></ul>
-  </div>
+    </div>
+        <div class="list-view-wrapper">
+        
     
-  <div class="list-view-wrapper">
         <div  class="helpIcon2" onclick="showHelpText('Pacientes registrados nas últimas 24 horas, aguardando classificação de risco.')" >
- </div><h2 class="listHeader2" >FILA CLASSIF. DE RISCO</h2>
+        </div><h2 class="listHeader2" >FILA CLASSIF. DE RISCO</h2>
     <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourceClass"></ul>
-    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoConsultorioTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
-   
-  </div>
+    </div>
     
-
+    <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoConsultorioTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
+    
     <div class="list-view-wrapper">
         <div  class="helpIcon2" onclick="showHelpText('Percentual de atendimentos que possuíram ao menos um item prescrito do tipo Exame Laboratorial, Exame de Imagem, Cuidados, Nutrição ou Medicamento.')" >
         </div><h2 class="listHeader2" >PRESCRIÇÕES</h2>
         <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePres"></ul>
     </div>
-    
-    <div class="list-view-wrapper">  
+        <div class="list-view-wrapper">
+       
         <div  class="helpIcon2" onclick="showHelpText('Pacientes em observação na unidade.')" >
         </div><h2 class="listHeader2" >OBSERVAÇÃO</h2>
     <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="leitoTemplate" data-bind="source: dataSourceLeito"></ul>
     </div>
-
+    <!--<ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="contactsTemplate" 
+    data-header-template="headerTemplate" data-type="group" data-bind="source: dataSource, events:{dataBound: onListDataboud}"></ul>-->
+    
 </div>
 
 <div data-role="modalview" id="modalview-help" style="width: 90%;">
-         <div class="helpIcon"> 
+
+            <div class="helpIcon">
+            
         </div>
+
     <div class="btnContent">
         <a data-role="button" onclick="closeHelp();">Fechar</a>
     </div> 
-    <div id="modalContent"></div>
+    <div id="modalContent">
+        
+    </div>
     
 </div>
+
+
 
 
 <script type="text/x-kendo-template" id="headerTemplate">
 
+<div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" ></div>
     
-    <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
-    
-    </div><h2 class="listHeader" >${value}</h2>
+<div class="listHeader" >${value}</div>
     
 </script>
 
@@ -94,17 +86,25 @@
      #if(data.LINKTO && data.VALOR > 0){#
          <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
          #if((data.DESCRICAO == 'AMARELO' && data.MEDIA > 30) || (data.DESCRICAO == 'VERDE' && data.MEDIA > 60)){#
-             <div class="alerta_vermelho"></div> <h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h4> <h4 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h4>        
+             <h5 class="alerta_vermelho"></h5>
+             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>   
+             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small>  
          #}else if((data.DESCRICAO == 'AMARELO' && data.MEDIA > (30 * 0.8)) || (data.DESCRICAO == 'VERDE' && data.MEDIA > (60 * 0.8))){#
-             <div class="alerta_amarelo"></div> <h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h4> <h4 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h4>        
+             <h5 class="alerta_amarelo"></h5>
+             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>  
+             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small>  
          #}else{#
-             <div class="alerta_vazio"></div> <h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h4> <h4 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h4>    
+             <h5 class="alerta_vazio"></h5> 
+             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5> 
+             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small> 
          #}#
             
          </a>
      #}else{#
      
-         <div class="alerta_vazio"></div><h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h4> <h4 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h4>    
+         <div class="alerta_vazio"></div>
+         <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #:</h5> 
+         <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px">#: data.VALOR #</b></small>
      #}#
       
      
@@ -113,37 +113,29 @@
 <script type="text/x-kendo-template" id="situacaoTemplate">
 
      #if(data.LINKTO && data.VALOR > 0){#
-         
-         <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
-           <h4 style="display:inline-block">#: data.DESCRICAO #:</h4> 
-           <h4 style="display:inline-block; float:right; margin-right:20px">#: data.VALOR #</h4>
+ <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+        <h5 style="display:inline-block;float:left;">#: data.DESCRICAO #:</h5>
+        <small><b style="float:right;margin-right:5px;margin-top:9px;">#: data.VALOR #</b></small>
          </a>
      #}else{#
-     
-           <h4 style="display:inline-block">#: data.DESCRICAO #:</h4> 
-           <h4 style="display:inline-block; float:right; margin-right:20px">#: data.VALOR #</h4>
+        <h5 style="display:inline-block;float:left;">#: data.DESCRICAO #:</h5>
+        <small><b style="float:right;margin-right:5px;margin-top:9px;">#: data.VALOR #</b></small>
      #}#
       
      
 </script>
 
 <script type="text/x-kendo-template" id="leitoTemplate">
-
-	#if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
-
-        <a href='views/Emergencia/observacaoView.html?secao=#:data.CHAVE#&nmsecao=#:data.DESCRICAO#' data-role="list-view-link" >
-           <h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # d)</h4> 
-           <small><h4 style="display:inline-block; float:right; margin-right:20px">#: data.VALOR #</h4></small>
-         </a>
-     
-     #}else{#
-     
-           <h4 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # d)</h4> 
-           <small><h4 style="display:inline-block; float:right; margin-right:20px">#: data.VALOR #</h4></small>
-     #}#
-      
-     
-</script>
+        #if (data.VALOR[0] > 0) {#
+       <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
+              <h5>#:data.DESCRICAO# (TM: #: data.MEDIA # h)<br/>
+                <small>#:data.VALOR#</small> </h5>
+            </a>   
+        #}else {#
+            <h5>#:data.DESCRICAO#<br/>
+                <small>#:data.VALOR#</small> </h5>              
+        #}#    
+    </script>
 
 <script>
     
@@ -152,20 +144,10 @@
         app.situacaoService.viewModel.dataSource.read();
     }
     
-    function showHelpText(text, height)
+    function showHelpText(text)
     {
         $("#modalContent").html(text);
         $("#modalview-help").data("kendoMobileModalView").open();
-        if (height)
-            {
-                
-                $(".km-modalview-wrapper").height(height);
-            }
-        else
-            {
-                $(".km-modalview-wrapper").height("100%");
-            }
-            
     }
     
     function showHelp(id)

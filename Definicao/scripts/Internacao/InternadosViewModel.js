@@ -6,6 +6,7 @@
         value:"",
         secao:"",
         descricaoSecao:"",
+        media:"",
          onViewShow: function(e)
         {
            
@@ -45,12 +46,12 @@
                                     }
                                 }
                            },            
-                            schema: {
+                          schema: {
                                 parse: function (response) {
-                                     console.log(response);     
                                     if (response)
                                     {
-                                        
+                                        if (response.length > 0)
+                                       	app.enfermariaservice.viewModel.set("media", response[0].MEDIA);
                                         return response;
                                     }
                                     else
@@ -58,7 +59,9 @@
                                 
                             }
                           },
+                                  
                            sortable:true,
+                          sort: { field: "DATEDIFF", dir: "desc" }
                    
                     }),
         onUpdate: function() 

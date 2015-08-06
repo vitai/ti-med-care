@@ -5,7 +5,7 @@
       <div data-role="navbar">
           <div >
               <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
-              <span data-role="view-title" style="line-height:1.8em"></span>
+              <span data-role="view-title" style="line-height:0.5em"></span>
           </div>
       </div>
     </div>    
@@ -19,12 +19,18 @@
 </div> 
     
     <h4 class="tituloListas">
-        <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" class="divRisco20px circle inlineBlock"></div><div id="uiRisco" data-bind="html: risco" class="inlineBlock"></div><div id="uiRisco" class="inlineBlock"> - Tempo Médio (min): </div><div class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></div>
-        <div class="inlineBlock" id="uiRisco" data-bind="html: meta" style="margin-left: 30px; margin-top: 7px"></div>
+        <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" 
+            class="divRisco20px circle inlineBlock"></div>
+        <h5 id="uiRisco" data-bind="html: risco" class="inlineBlock"></h5>
+        <h5 id="uiRisco" class="inlineBlock">Tempo Médio(min):</h5><h5 style="margin-right: 30px; margin-top: 7px" class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></h5>
+        <h5 class="inlineBlock" id="uiRisco" data-bind="html: meta" 
+            style="margin-left: 30px; margin-top: 7px"></h5>
     </h4>
     <ul data-role="listview"  data-auto-bind="false" data-style="inset" data-template="consultorioTemplate"  data-bind="source: dataSource"></ul>
 
 </div>
+
 <script type="text/x-kendo-template" id="consultorioTemplate">
-<h4 style="float:left">#: data.NMCIDADAO #:</h4> <h4 style="float:right; margin-right:30px"><b>#: data.TEMPO_ESPERA #</b></h4>
+ <h5 style="float:left">#: data.NMCIDADAO #<br/>  
+ <small>Tempo de Espera:<b style="padding:5px">#: data.TEMPO_ESPERA #</b></small></h5>
 </script>

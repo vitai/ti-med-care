@@ -21,6 +21,7 @@
             this.dataSourceLeito.read();               
         },
         descricaoUnidade: "",
+        dataAtualizacao: "",  
         hasPacientes: false,
         observacoes: [],
          dataSourcePaciente: new kendo.data.DataSource({
@@ -30,6 +31,8 @@
             parse: function (response) {
                 
                     if (response.length > 0)
+                    app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")); 
+                    console.log(app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")));
                     return response;
                 }
             },
@@ -93,7 +96,6 @@
         },
         onBeforeShowView: function(e)
         {
-            this.set("logo",app.unidadeCorrente.LOGO);
             this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             //this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;           
             this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;
