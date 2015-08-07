@@ -4,17 +4,16 @@
     
     EnfermariaModel = kendo.data.ObservableObject.extend({
         value:"",
-        secao:"",
+        secao:"", 
         descricaoSecao:"",
         media:"",
          onViewShow: function(e)
         {
            
             var that = this;
-            
             that.set("secao", e.view.params.secao);
             that.set("value", e.view.params.value);
-            that.set("descricaoSecao", e.view.params.descricao);
+            that.set("descricaoSecao", e.view.params.descricaoSecao);
             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             console.log(app.unidadeUrl + "ws/relatorio");
             

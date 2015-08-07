@@ -1,8 +1,18 @@
- .km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
+.km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
+.km-back-button:before, .km-back-button:after  { content: "\E222"; }
+
 
 .km-flat, .km-content { 
     background-color: rgba(242,242,242, 1) !important;
     font-size: 1.1em;
+}
+
+
+html{
+    width: 100%;
+	height: 100%;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size : 13px;   
 }
 
 .vitailogo
@@ -29,16 +39,6 @@
     height: 60px;
     margin:10px;
     width: 60px;
-}
-
-.alerta_vermelho, .alerta_amarelo, .alerta_vazio
-{
-    
-    background-repeat: no-repeat;
-    display:inline-block;
-    height: 20px;
-    width:20px;
-    
 }
 
 .alerta_vermelho
@@ -90,12 +90,39 @@
     margin-left: 15px;
 }
 
-.tituloListas div
+.ti-med-image-container
 {
-    display: inline-block;
-    margin-right: 10px;
-    line-height: 20px;
-    vertical-align: middle;
+    text-align:center;
+    width: 100%;
+    float:left;
+}
+
+.loginContainer
+{
+    padding: 10px;
+}
+
+.loginFields
+{
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+.loginFields li
+{
+    line-height:30px;
+}
+
+.titulo
+{
+    text-align:center;
+    color: blue;
+}
+
+.button
+{
+    background-color:#88bacf;
+    
 }
 
 .listHeader, .listHeader2
@@ -130,6 +157,34 @@
     width:100%;
 }
 
+
+.helpIcon
+{
+    background-image: url(../styles/images/help_icon.gif);
+    background-repeat: no-repeat;
+    display: none    ;
+    float:left;
+    margin: 0 auto;    
+    height: 20px;
+    width:20px;
+   
+}
+
+.list-view-wrapper
+{
+    margin-top: 10px;
+}
+
+.alerta_vermelho, .alerta_amarelo, .alerta_vazio
+{
+    
+    background-repeat: no-repeat;
+    display:inline-block;
+    height: 20px;
+    width:20px;
+    
+}
+
 #modalview-help
 {
     height:200px;
@@ -147,4 +202,27 @@
     text-align:right;
     border-bottom: 1px solid gray;
         
+}
+
+
+.divRisco20px
+{
+	height: 20px;
+	width: 20px;
+}
+
+.circle {
+
+      border-radius: 50%;
+
+      display: inline-block;
+
+}
+
+.tituloListas div
+{
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 20px;
+    vertical-align: middle;
 }

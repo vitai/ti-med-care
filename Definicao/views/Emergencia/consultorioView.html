@@ -17,15 +17,22 @@
     </h4>
 </div>
 </div> 
+
+<div class="row">  
+      <div class="col-sm-4 col-sm-3">
+        <h5 data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" 
+            class="divRisco20px circle inlineBlock"></h5>
+        <h5 id="uiRisco" data-bind="html: risco" class="inlineBlock"></h5></div> 
+      <div class="col-sm-4 col-sm-3">   
+        <h5 id="uiRisco" class="inlineBlock">Tempo Médio(min):</h5></div> 
+       <div class="col-sm-4 col-sm-3">  
+        <h5 style="margin-right: 30px; margin-top: 7px" class="inlineBlock" id="uiRisco" 
+            data-bind="html: tempoMedio"></h5></div><br/>
+ 
+       <h5 class="inlineBlock" id="uiRisco" data-bind="html: meta" 
+            style="margin-left: 30px; margin-top: 7px"></h5>     
+  </div>    
     
-    <h4 class="tituloListas">
-        <div data-bind="style: {background-color: riscoColor}, visible:colorIsVisible" 
-            class="divRisco20px circle inlineBlock"></div>
-        <h5 id="uiRisco" data-bind="html: risco" class="inlineBlock"></h5>
-        <h5 id="uiRisco" class="inlineBlock">Tempo Médio(min):</h5><h5 style="margin-right: 30px; margin-top: 7px" class="inlineBlock" id="uiRisco" data-bind="html: tempoMedio"></h5>
-        <h5 class="inlineBlock" id="uiRisco" data-bind="html: meta" 
-            style="margin-left: 30px; margin-top: 7px"></h5>
-    </h4>
     <ul data-role="listview"  data-auto-bind="false" data-style="inset" data-template="consultorioTemplate"  data-bind="source: dataSource"></ul>
 
 </div>

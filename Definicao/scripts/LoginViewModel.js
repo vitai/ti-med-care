@@ -104,7 +104,6 @@ LoginModel = kendo.data.ObservableObject.extend({
           
            this.set("username", "");
            this.set("password", ""); 
-            app.Logoff();  
       }
 
 });

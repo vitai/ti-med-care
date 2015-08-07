@@ -29,8 +29,7 @@
     </div>
     
   <div data-role="modalview" id="modalview-help" style="width: 90%;">
-            <div class="helpIcon">    
-        </div>
+            <div class="helpIcon"></div>
     <div class="btnContent">
         <a data-role="button" onclick="closeHelp();">Fechar</a>
     </div> 
@@ -41,15 +40,21 @@
 </div>
 
     <script type="text/x-kendo-template" id="enfermariaTemplate">   
+        
+        
+        
         #if (data.VALOR[0] > 0) {#
-       <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricao=#:data.DESCRICAO#' data-role="list-view-link" >
-                <h4>#:data.DESCRICAO# (TM: #: data.MEDIA # h)<br/>
+       <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
+                <h4>#:data.DESCRICAO# <br/>
+                <small>Tempo Medio: #: data.MEDIA # d</small><br/>
                 <small>#:data.VALOR#</small> </h4>
             </a>   
         #}else {#
             <h4>#:data.DESCRICAO#<br/>
                 <small>#:data.VALOR#</small> </h4>              
         #}#    
+        
+        
     </script>
     
  

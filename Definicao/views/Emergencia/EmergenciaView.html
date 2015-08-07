@@ -75,9 +75,11 @@
 
 <script type="text/x-kendo-template" id="headerTemplate">
 
-<div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" ></div>
+<div data-id="${value}"  
+    class="helpIcon" onclick="showHelp(${value})" ></div>
     
 <div class="listHeader" >${value}</div>
+
     
 </script>
 
@@ -102,7 +104,7 @@
          </a>
      #}else{#
      
-         <div class="alerta_vazio"></div>
+         <h5 class="alerta_vazio"></h5>
          <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #:</h5> 
          <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px">#: data.VALOR #</b></small>
      #}#
@@ -111,15 +113,14 @@
 </script>
 
 <script type="text/x-kendo-template" id="situacaoTemplate">
-
      #if(data.LINKTO && data.VALOR > 0){#
- <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
-        <h5 style="display:inline-block;float:left;">#: data.DESCRICAO #:</h5>
-        <small><b style="float:right;margin-right:5px;margin-top:9px;">#: data.VALOR #</b></small>
+     <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >  
+        <h6 style="display:inline-block">#: data.DESCRICAO #:</h6>
+        <small><b style="float:right;margin-right:5px;margin-top:9px;left:30px;">#: data.VALOR #</b></small>
          </a>
      #}else{#
-        <h5 style="display:inline-block;float:left;">#: data.DESCRICAO #:</h5>
-        <small><b style="float:right;margin-right:5px;margin-top:9px;">#: data.VALOR #</b></small>
+        <h6 style="display:inline-block">#: data.DESCRICAO #:</h6>
+        <small><b style="float:right;margin-right:5px;margin-top:9px;left:30px;">#: data.VALOR #</b></small>
      #}#
       
      
@@ -128,8 +129,8 @@
 <script type="text/x-kendo-template" id="leitoTemplate">
         #if (data.VALOR[0] > 0) {#
        <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
-              <h5>#:data.DESCRICAO# (TM: #: data.MEDIA # h)<br/>
-                <small>#:data.VALOR#</small> </h5>
+              <h5>#:data.DESCRICAO# </br>Tempo Medio: #: data.MEDIA # d<br/>
+              <small>#:data.VALOR#</small> </h5>
             </a>   
         #}else {#
             <h5>#:data.DESCRICAO#<br/>

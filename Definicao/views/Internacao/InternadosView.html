@@ -12,19 +12,30 @@
 
     
 <div class="list-view-wrapper">  
-    
+
 <div class="vt-panel-heading" >
     <h4 data-bind="html:descricaoSecao">
     </h4>
     <h6 data-bind="html:value">
     </h6>
+    
+  <table style="width:100%">  
+    <tr>
+    <td style="width:40%">
+    <h6> Tempo Médio (d): </h6></td>
+    <td style="width:70%">
+        <h6 data-bind="html: media"></h6></td>     
+   <tr>     
+  </table> 
+   </div>     
 </div>
+    
 
     
  <ul data-role="listview" data-style="inset"  data-template="internadosTemplate" data-bind="source: dataSource">
 </ul>
     
-</div>
+
     
       <div data-role="modalview" id="modalview-help" style="width: 90%;">
             <div class="helpIcon">    
@@ -42,7 +53,7 @@
 <script type="text/x-kendo-template" id="internadosTemplate">
  <a href='views/prontuario/SumarioView.html?boeId=#:data.BOE_ID#' data-role="list-view-link" >
     <h4 >#: data.NMCIDADAO #<br/>  
-    <small>Sexo: #: data.SEXO # - Idade:#: data.IDADE #</small> </h4>
+    <small>Sexo: #: data.SEXO # - Idade:#: data.IDADE # </br>Tempo de Permanência:#: data.DATEDIFF #d</small> </h4>
 </a>
 </script>
 

@@ -22,7 +22,7 @@
             app.unidadeUrl = e.dataItem.URL;
             app.application.navigate('views/MenuView.html');
         }
-    
+          
       });
     
     app.unidadeservice = 

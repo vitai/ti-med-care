@@ -25,12 +25,6 @@ app.Login = function(userSettings){
       
      }
     
-app.Logoff = function()
-    {
-        app.permissoes = null;
-        app.usuarioSettings = [];
-    }    
-
 document.addEventListener("deviceready",function(){
         navigator.splashscreen.hide();
             document.addEventListener("resume", function(){
