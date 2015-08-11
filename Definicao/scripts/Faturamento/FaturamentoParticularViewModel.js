@@ -16,6 +16,12 @@
     app.anoAnterior = null;
     app.ultimoDiadoMesAnterior = null; 
     
+   function handleError()
+    {
+        console.log('erro');
+    }
+   
+    
     faturamentoParticularViewModel = kendo.data.ObservableObject.extend({
         ValorTotal:0,
         mesanterior:"",
@@ -117,7 +123,8 @@
                     
                     return response;
                 }
-            }               
+            },
+          error: handleError  
 
         }),
         dataSourceConsolidado: new kendo.data.DataSource({
@@ -151,7 +158,8 @@
                     app.faturamentoParticularService.viewModel.set("ValorTotal", kendo.toString(total, "c"));                    
                     return response;
                 }
-            }               
+            },
+        error: handleError      
 
         }),        
         onListDataboud: function (e) {
