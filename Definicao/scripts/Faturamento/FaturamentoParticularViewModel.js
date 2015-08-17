@@ -153,8 +153,7 @@
                     {
                      total += response[i].VALOR
                         console.log(total);
-                    }
-                        
+                    } 
                     app.faturamentoParticularService.viewModel.set("ValorTotal", kendo.toString(total, "c"));                    
                     return response;
                 }
@@ -177,4 +176,5 @@
     app.faturamentoParticularService = {
         viewModel : new faturamentoParticularViewModel()
     };
+    
 })(window);

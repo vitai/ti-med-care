@@ -18,23 +18,25 @@
                 <h6 data-bind="html:value">
                 </h6>
             
-                   <div class="row">  
-    
-                   <div class="col-xs-5"> 
-                     <h6>Tempo Médio (d): </h6>     
-                   </div> 
-                    
-                   <div class="col-xs-0 col-xs-offset-0"> 
-                      <h5 data-bind="html: media"></h5>     
-                  </div> 
-                    
-                </div>  
+     <form class="form-horizontal" role="form">         
+            <div class="container">       
+                 <div class="form-group pull-left">
+          <div class="col-sm-offset-3">
+                   <h5>Tempo Médio (d): </h5> 
+              
+           </div>
+            </div>
+              
+         <div class="form-group pull-left">
+          <div class="col-sm-1 col-sm-offset-1">
+                   <h5 data-bind="html: media"></h5>    
+           </div>
               </div>
-            
-
-            
-            </div>   
-    
+                   
+                  </div>      
+              </form> 
+         </div>
+     </div>
 
     
  <ul data-role="listview" data-style="inset"  data-template="internadosTemplate" data-bind="source: dataSource">
