@@ -3,16 +3,17 @@
     data-model="app.situacaoService.viewModel" 
     data-bind="events:{beforeShow:onBeforeShowView, init:onInit}"  data-init="mobileListViewPullToRefresh" >
      
+   
     <div data-role="header">
       <div data-role="navbar">
-          <div >
-			  <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
-              <span data-role="view-title" style="line-height:1.8em"></span>
-              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a>
-              
+          <div>
+              <a data-role="button" href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home"></a>      
+			  <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a> 
+              <span data-role="view-title" style="line-height:2.0em"></span>
+              <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a> 
           </div>
       </div>
-    </div>  
+    </div>    
     
    <div class="list-view-wrapper">  
     <small><h5 style="display:inline-block;margin:19px;float:right;" data-bind="text: dataAtualizacao"></h5></small>       
@@ -22,11 +23,13 @@
        </div>
    </div>     
    </br>
+    
     <div class="list-view-wrapper">
         <div  class="helpIcon2" onclick="showHelpText('Permanência a maior 24H: Pacientes que estão na unidade a mais de 24 horas, e não foram registrados como em Observação.' + 
         '</br> </br> Registro em 24H: Número de pacientes registrados nas últimas 24 horas'
             )" >
-        </div><h2 class="listHeader2" >PACIENTES</h2>
+        </div>
+        <h2 class="listHeader2" >PACIENTES</h2>
         <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoTemplate" data-bind="source: dataSourcePaciente"></ul>
     </div>
         <div class="list-view-wrapper">
@@ -38,7 +41,6 @@
     </div>
     
     <ul  data-auto-bind="false"  data-role="listview" data-style="inset" data-template="situacaoConsultorioTemplate" data-header-template="headerTemplate" data-type="group" data-bind="source: dataSourceCons, events:{dataBound: onListDataboud}"></ul>
-    
     <div class="list-view-wrapper">
         <div  class="helpIcon2" onclick="showHelpText('Percentual de atendimentos que possuíram ao menos um item prescrito do tipo Exame Laboratorial, Exame de Imagem, Cuidados, Nutrição ou Medicamento.')" >
         </div><h2 class="listHeader2" >PRESCRIÇÕES</h2>
@@ -75,68 +77,75 @@
 
 <script type="text/x-kendo-template" id="headerTemplate">
 
-<div data-id="${value}"  
-    class="helpIcon" onclick="showHelp(${value})" ></div>
     
-<div class="listHeader" >${value}</div>
-
+    <div data-id="${value}"  class="helpIcon" onclick="showHelp(${value})" >
+    
+    </div>
+    <div class="listHeader" >${value}</div>
     
 </script>
 
 <script type="text/x-kendo-template" id="situacaoConsultorioTemplate">
 
      #if(data.LINKTO && data.VALOR > 0){#
-         <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
+        <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >
          #if((data.DESCRICAO == 'AMARELO' && data.MEDIA > 30) || (data.DESCRICAO == 'VERDE' && data.MEDIA > 60)){#
-             <h5 class="alerta_vermelho"></h5>
-             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>   
-             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small>  
+             <h7 class="alerta_vermelho"></h7>
+             <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>
+             <h5 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h5>    
          #}else if((data.DESCRICAO == 'AMARELO' && data.MEDIA > (30 * 0.8)) || (data.DESCRICAO == 'VERDE' && data.MEDIA > (60 * 0.8))){#
-             <h5 class="alerta_amarelo"></h5>
-             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>  
-             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small>  
+             <h7 class="alerta_amarelo"></h7>
+             <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>
+             <h5 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h5>    
          #}else{#
-             <h5 class="alerta_vazio"></h5> 
-             <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5> 
-             <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px;">#: data.VALOR #</b></small> 
+             <h7 class="alerta_vazio"></h7>
+             <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # min)</h5>
+             <h5 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h5>    
          #}#
             
          </a>
      #}else{#
      
-         <h5 class="alerta_vazio"></h5>
-         <h5 style="display:inline-block;margin-bottom:20px;">#: data.DESCRICAO #:</h5> 
-         <small><b style="float:right;padding:2px;margin-right:10px;margin-top:9px">#: data.VALOR #</b></small>
+         <h7 class="alerta_vazio"></h7>
+         <h5 style="display:inline-block">#: data.DESCRICAO #:</h5>
+         <h5 style="display:inline-block;float:right; margin-right:20px"><b>#: data.VALOR #</b></h5>
      #}#
       
      
 </script>
 
 <script type="text/x-kendo-template" id="situacaoTemplate">
+
      #if(data.LINKTO && data.VALOR > 0){#
-     <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >  
-        <h6 style="display:inline-block">#: data.DESCRICAO #:</h6>
-        <small><b style="float:right;margin-right:5px;margin-top:9px;left:30px;">#: data.VALOR #</b></small>
+         
+ <a href='views/Emergencia/consultorioView.html?risco=#:data.DESCRICAO#&ordem=#:data.ORDEM#' data-role="list-view-link" >  
+         <h5 style="display:inline-block">#: data.DESCRICAO #:</h5>
+         <h5 style="float:right;margin-right:13px;margin-top:9px;left:15px;"><b>#: data.VALOR #</b></h5>
          </a>
      #}else{#
-        <h6 style="display:inline-block">#: data.DESCRICAO #:</h6>
-        <small><b style="float:right;margin-right:5px;margin-top:9px;left:30px;">#: data.VALOR #</b></small>
+     
+         <h5 style="display:inline-block">#: data.DESCRICAO #:</h5>
+         <h5 style="float:right;margin-right:13px;margin-top:9px;left:15px;"><b>#: data.VALOR #</b></h5>
+     #}#
+           
+</script>
+
+<script type="text/x-kendo-template" id="leitoTemplate">
+
+	#if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
+     <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
+         <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # h)</h5>
+        <h5 style="display:inline-block; float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5></b>
+         </a>
+     
+     #}else{#
+ 
+         <h5 style="display:inline-block">#: data.DESCRICAO #:</h5>
+         <h5 style="display:inline-block;float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5>
      #}#
       
      
 </script>
-
-<script type="text/x-kendo-template" id="leitoTemplate">
-        #if (data.VALOR[0] > 0) {#
-       <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
-              <h5>#:data.DESCRICAO# </br>Tempo Medio: #: data.MEDIA # d<br/>
-              <small>#:data.VALOR#</small> </h5>
-            </a>   
-        #}else {#
-            <h5>#:data.DESCRICAO#<br/>
-                <small>#:data.VALOR#</small> </h5>              
-        #}#    
-    </script>
 
 <script>
     
@@ -161,3 +170,4 @@
         $("#modalview-help").data("kendoMobileModalView").close();
     }
 </script>
+
