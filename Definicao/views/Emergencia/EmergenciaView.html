@@ -6,14 +6,22 @@
    
     <div data-role="header">
       <div data-role="navbar">
-          <div>
-              <a data-role="button" href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home"></a>      
+          <div>   
 			  <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a> 
               <span data-role="view-title" style="line-height:2.0em"></span>
               <a data-role="button" data-align="right" data-icon="refresh" data-bind="click: onUpdate" ></a> 
           </div>
+            
       </div>
-    </div>    
+           
+    </div>   
+    
+    <div data-role="footer">
+        <div data-role="tabstrip">
+             <a href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home">Home</a>  
+             <a href="views/ProducaoProfissionalView.html" data-align="left" data-icon="action">Produção</a> 
+        </div>
+    </div>
     
    <div class="list-view-wrapper">  
     <small><h5 style="display:inline-block;margin:19px;float:right;" data-bind="text: dataAtualizacao"></h5></small>       

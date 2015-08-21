@@ -6,15 +6,17 @@
     app.permissoes = null;
     app.currentViewModel = null;
     app.unidadeCorrente = null;
-   
+    
+    app.addDays = function(date, days) {
+    	var result = new Date(date);
+    	result.setDate(date.getDate() + days);
+    	return new Date(result);
+	}   
+    
 app.Login = function(userSettings){
-
-
                 app.usuarioSettings = userSettings;
                 app.permissoes = userSettings.PERMISSOES;
-
-           if(userSettings.UNIDADES.length == 1){
-               
+           if(userSettings.UNIDADES.length == 1){            
                 app.unidadeCorrente = userSettings.UNIDADES[0];
                 app.unidadeUrl = userSettings.UNIDADES[0].URL;
                console.log(app.unidadeUrl);

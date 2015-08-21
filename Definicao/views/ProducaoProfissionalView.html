@@ -1,0 +1,45 @@
+<div id="divHomeView" data-role="view" data-title="Produçao Profissional" data-layout="main" 
+     data-model="app.producaoProfissionalViewService.viewModel"   
+    data-bind="events: {show: onViewShow, init: onInit }">
+     
+    <div data-role="header">
+      <div data-role="navbar">
+          <div >
+             <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>         
+              <span data-role="view-title" style="line-height:1.8em"></span>
+              <div data-align="right"  class="helpIcon2" onclick="showHelpText('<ul><li>Quantidade: Quantidade de atendimentos no consultório nas ultimas 24h' + 
+                '<li>Tempo médio: Tempo médio das consultas nas ultimas 24h</li>' +
+				'<li>% Atd. c/ prescrição: Percentual de atendimentos que tiverem pelo menos um item prescrito nas ultimas 24h</li>' +
+				'</li></ul>'
+				)" >
+          </div>
+      </div>
+    </div>  
+        
+  <div class="list-view-wrapper">  
+    <div class="vt-panel-heading" >
+    <h4 data-bind="html: descricaoUnidade">
+    </h4>
+       </div>
+   </div>   
+        
+    <ul data-role="listview" data-style="inset" data-type="group" data-header-template="producaoProfissionalHeaderTemplate" data-template="producaoProfissionalTemplate" data-bind="source: dataSource"  ></ul>
+
+</div>
+    
+<script type="text/x-kendo-template" id="producaoProfissionalHeaderTemplate">
+
+    <h3>${value}</h3>
+    
+</script>
+<script type="text/x-kendo-template" id="producaoProfissionalTemplate">
+<div style="font-weight:bold">#: data.PROFISSIONAL #</div> 
+<div>
+    <div style="display:inline">Quantidade:</div><div style="display:inline">#: data.QUANTIDADE #</div>
+    <div style="display:inline"> - Tempo Medio:</div>  <div style="display:inline">#: data.TEMPO_MEDIO # (min)</div> <br />
+    <div style="display:inline">% Atd. C/ Prescricao:</div>  <div style="display:inline">#: kendo.toString(data.PERCENTUAL, "p0") #</div> 
+    <!--<div style="display:inline"> - Entrada:</div>  <div style="display:inline">#: data.BOE_DATAENTRADA #</div> -->
+</div>
+<!--<div> <div style="display:inline">#: data.DIAGNOSTICO #</div> </div>--> 
+
+</script>

@@ -8,6 +8,18 @@
 }
 
 
+.km-root .km-android .km-view {
+ -webkit-box-direction: normal;
+ -webkit-flex-direction: column;
+}
+ 
+.km-android .km-view-title
+{
+ visibility: visible;
+}
+ 
+
+
 html{
     width: 100%;
 	height: 100%;
