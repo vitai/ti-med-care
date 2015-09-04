@@ -44,14 +44,14 @@
                                "id": app.sumarioService.viewModel.boeId
 
                            };
-                           console.log(param);
+                         console.log(param);
                          return param;
                        } 
                    }
                },
                schema: {
             	   parse: function (response) {
-            		   
+            		   console.log(response);
                        if (response && response.length > 0)
                        {
                     	   var item = response[0];
@@ -81,6 +81,7 @@
                                  "id": app.sumarioService.viewModel.boeId
 
                              };
+                           console.log(param);    
                            return param;
                          } 
                      }
@@ -115,6 +116,7 @@
                                    "idCidadao": app.sumarioService.viewModel.paciente.id
 
                                };
+                             console.log(param);    
                              return param;
                            } 
                        }
@@ -149,6 +151,7 @@
                                      "boeId": app.sumarioService.viewModel.boeId
 
                                  };
+                               console.log(param);
                                return param;
                              } 
                          }
@@ -183,7 +186,7 @@
                                        "boeId": app.sumarioService.viewModel.boeId
 
                                    };
-                                   console.log(param);
+                                 console.log(param);
                                  return param;
                                } 
                            }
@@ -220,7 +223,9 @@
                               element = groups[i].parentElement.parentElement;
                           $(element).addClass("vt-lista-evento");
                 		  $(element).addClass(cssClass);
-                	  }
+                              	
+                      
+                      }
                 	  
                   },
                 onListViewEventoChanged: function(e)
@@ -231,11 +236,11 @@
                         app.application.navigate('views/' + e.dataItem.LINKTO.trim() + '?idExame=' + e.dataItem.CHAVE);
                     }
                 },
-        showHelp: function(e)
-        {
-            
-        }
-        
+                showHelp: function(e)
+                {
+                    
+                }
+                
     });
     
     app.sumarioService = 

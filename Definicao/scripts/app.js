@@ -11,7 +11,16 @@
     	var result = new Date(date);
     	result.setDate(date.getDate() + days);
     	return new Date(result);
-	}   
+	}  
+    
+ app.Logoff = function(){
+    app.usuarioSettings = [];
+    app.permissoes = null;       
+ }   
+ 
+ app.appService = function() {
+        viewModel: new AppModel()
+    };
     
 app.Login = function(userSettings){
                 app.usuarioSettings = userSettings;
@@ -38,6 +47,8 @@ document.addEventListener("deviceready",function(){
         kendo.culture("pt-BR"); 
         app.currentViewModel = null;
     
+        kendo.bind($("#appDrawerMenu"), app.appService.viewModel);
+           
 app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/LoginView.html'});
 // app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/Emergencia/IndicadoresView.html'});
     

@@ -1,45 +1,63 @@
-<div id="divHomeView" data-role="view" data-title="Produçao Profissional" data-layout="main" 
+<div data-role="view" data-title="Produçao Profissional" data-layout="main" 
      data-model="app.producaoProfissionalViewService.viewModel"   
     data-bind="events: {show: onViewShow, init: onInit }">
      
     <div data-role="header">
       <div data-role="navbar">
           <div >
-             <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>         
+              <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>             
               <span data-role="view-title" style="line-height:1.8em"></span>
-              <div data-align="right"  class="helpIcon2" onclick="showHelpText('<ul><li>Quantidade: Quantidade de atendimentos no consultório nas ultimas 24h' + 
-                '<li>Tempo médio: Tempo médio das consultas nas ultimas 24h</li>' +
-				'<li>% Atd. c/ prescrição: Percentual de atendimentos que tiverem pelo menos um item prescrito nas ultimas 24h</li>' +
-				'</li></ul>'
-				)" >
+              <div data-align="right"  class="helpIcon2" onclick="showHelpText('<ul><li>T: Quantidade total de atendimentos no consultório</li>' + 
+                                                                  '<li>C: Quantidade total de primeira consulta</li>' + 
+                                                                  '<li>R: Quantidade total de atendimento de retorno</li>' + 
+                												  '<li>TM: Tempo médio das consultas, total, primeira consulta e retorno, respectivamente</li>' +
+																  '<li>%P: Percentual de atendimentos que tiverem pelo menos um item prescrito</li>' +
+				'</li></ul>', 250
+                                                                  )" ></div>
           </div>
       </div>
     </div>  
-        
-  <div class="list-view-wrapper">  
-    <div class="vt-panel-heading" >
-    <h4 data-bind="html: descricaoUnidade">
-    </h4>
-       </div>
-   </div>   
-        
-    <ul data-role="listview" data-style="inset" data-type="group" data-header-template="producaoProfissionalHeaderTemplate" data-template="producaoProfissionalTemplate" data-bind="source: dataSource"  ></ul>
+  
+      <div class="list-view-wrapper">  
+            
+        <div class="vt-panel-heading" >
+            <h4 data-bind="html:descricaoUnidade">
+            </h4>
+        </div>
+        </div> 
+    
+    
+        <ul id="select-period">
+        <li>
+            Turno 7:00 as 19:00<br/><label data-bind="text: detalheTurno1"></label>
+        </li>
+        <li>
+            Turno 19:00 as 7:00<br/><label data-bind="text: detalheTurno2"></label>
+        </li>
+    </ul>
+    <ul data-auto-bind="false" data-role="listview" data-style="inset" data-type="group" data-header-template="producaoProfissionalHeaderTemplate" data-template="producaoProfissionalTemplate" data-bind="source: dataSource"  ></ul>
 
 </div>
     
 <script type="text/x-kendo-template" id="producaoProfissionalHeaderTemplate">
 
-    <h3>${value}</h3>
+    <h5>${value}</h5>
     
 </script>
 <script type="text/x-kendo-template" id="producaoProfissionalTemplate">
-<div style="font-weight:bold">#: data.PROFISSIONAL #</div> 
-<div>
-    <div style="display:inline">Quantidade:</div><div style="display:inline">#: data.QUANTIDADE #</div>
-    <div style="display:inline"> - Tempo Medio:</div>  <div style="display:inline">#: data.TEMPO_MEDIO # (min)</div> <br />
-    <div style="display:inline">% Atd. C/ Prescricao:</div>  <div style="display:inline">#: kendo.toString(data.PERCENTUAL, "p0") #</div> 
-    <!--<div style="display:inline"> - Entrada:</div>  <div style="display:inline">#: data.BOE_DATAENTRADA #</div> -->
-</div>
-<!--<div> <div style="display:inline">#: data.DIAGNOSTICO #</div> </div>--> 
+<h5 style="font-weight:bold">#: data.PROFISSIONAL #</h5> 
+<h5>
+    <div style="display:inline">T:</div><div style="display:inline; font-weight: bold;">#: data.QUANTIDADE #</div>
+    <div style="display:inline"> - TM:</div><div style="display:inline; font-weight: bold;">#: data.TEMPO_MEDIO # (min)</div>
+    <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL, "p0") #</div><br /> 
+    <div style="display:inline">C:</div><div style="display:inline">#: data.QUANTIDADE_CONSULTA #</div>
+    <div style="display:inline"> - TM:</div><div style="display:inline">#: data.TEMPO_MEDIO_CONSULTA # (min)</div>
+    <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL_CONSULTA, "p0") #</div><br />
+    <div style="display:inline">R:</div><div style="display:inline">#: data.QUANTIDADE_RETORNO#</div>
+    <div style="display:inline"> - TM:</div><div style="display:inline">#: data.TEMPO_MEDIO_RETORNO # (min)</div>
+    <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL_RETORNO, "p0") #</div>
+    
+</h5>
+
 
 </script>
