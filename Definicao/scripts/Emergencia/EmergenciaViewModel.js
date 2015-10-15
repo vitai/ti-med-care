@@ -32,7 +32,7 @@
                 
                     if (response.length > 0)
                     app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")); 
-                    console.log(app.situacaoService.viewModel.set("dataAtualizacao", kendo.toString(new Date(), "G")));
+                    
                     return response;
                 }
             },
@@ -50,7 +50,7 @@
         }),    
            
             dataSourcePres: new kendo.data.DataSource({
-            transport: { read:  { dataType: "json", timeout: 6000  } },
+            transport: { read:  { dataType: "json", timeout: 4000  } },
             sortable:true,
             error: handleError
         }),    
@@ -96,6 +96,7 @@
         },
         onBeforeShowView: function(e)
         {
+            console.log(kendo.toString(new Date(), "G"));
             this.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             //this.dataSource.transport.options.read.url = app.unidadeUrl + "/ws/relatorio?q=3&setorId=" + app.unidadeCorrente.CODIGO;           
             this.dataSourcePaciente.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=15&setorId=" + app.unidadeCorrente.CODIGO;

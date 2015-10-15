@@ -1,26 +1,38 @@
-(function(global) {
-  var app =  global.app = global.app || {};
+(function (global) {
+    var AppModel, app = global.app = global.app || {};
+
+    AppModel = kendo.data.ObservableObject.extend({
+        navDataSource: new kendo.data.DataSource({
+          	transport: {
+            	read: function(operation) {
+                	var data = operation.data.data || [];
+                	operation.success(data);
+            	}
+        	}
+        })
+    });
     
-    app.unidadeUrl = "";
-    app.usuarioSettings = [];
-    app.permissoes = null;
-    app.currentViewModel = null;
-    app.unidadeCorrente = null;
+     app.appService = {
+        viewModel: new AppModel()
+    };
+    
+    app.makeUrlAbsolute = function (url) {
+            var anchorEl = document.createElement("a");
+            anchorEl.href = url;
+            return anchorEl.href;
+        };
     
     app.addDays = function(date, days) {
     	var result = new Date(date);
     	result.setDate(date.getDate() + days);
     	return new Date(result);
-	}  
+	}   
     
- app.Logoff = function(){
-    app.usuarioSettings = [];
-    app.permissoes = null;       
- }   
- 
- app.appService = function() {
-        viewModel: new AppModel()
-    };
+    app.Logoff = function()
+    {
+        app.permissoes = null;
+        app.usuarioSettings = [];
+    }
     
 app.Login = function(userSettings){
                 app.usuarioSettings = userSettings;
@@ -36,21 +48,47 @@ app.Login = function(userSettings){
       
      }
     
-document.addEventListener("deviceready",function(){
+    kendo.culture("pt-BR");
+    app.unidadeUrl = "http://177.124.207.146:8080/sits";
+    app.usuarioSettings = [];
+    app.permissoes = null;
+    app.currentViewModel = null;
+    app.unidadeCorrente = null;
+    
+    document.addEventListener("deviceready", function () {
         navigator.splashscreen.hide();
+        
             document.addEventListener("resume", function(){
                 console.log('resume');
                 if (app.currentViewModel)
                     app.currentViewModel.refresh();
             }, false);
-    
-        kendo.culture("pt-BR"); 
+
         app.currentViewModel = null;
-    
+        
+        app.changeSkin = function (e) {
+            var mobileSkin = "";
+
+            if (e.sender.element.text() === "Flat") {
+                e.sender.element.text("Native");
+                mobileSkin = "flat";
+            } else {
+                e.sender.element.text("Flat");
+                mobileSkin = "";
+            }
+
+            app.application.skin(mobileSkin);
+            
+
+        };
+        
+        
         kendo.bind($("#appDrawerMenu"), app.appService.viewModel);
-           
-app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/LoginView.html'});
-// app.application = new kendo.mobile.Application(document.body, {skin: 'flat', initial: 'views/Emergencia/IndicadoresView.html'});
+        
+
+        app.application = new kendo.mobile.Application(document.body, { skin: 'flat', initial: 'views/LoginView.html' });
+        
+    }, false);
     
-}, false);           
+    
 })(window);

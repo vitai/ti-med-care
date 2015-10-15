@@ -32,6 +32,7 @@
         },
         onBeforeShowView: function(e) {
             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            console.log(app.unidadeUrl + "ws/relatorio");
             this.dataSourceConsolidado.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             this.refresh();  
             app.mesAnterior  = kendo.toString(new Date(app.ano, app.mes - 2, 1), "MM"); 
@@ -102,22 +103,21 @@
           sort: { field: "VALOR", dir: "desc" },
           transport:{ 
             read:{ 
-                  dataType: "json",
+                  dataType: "json", timeout: 2000 }
+                },
                   url: app.unidadeUrl + "ws/relatorio",
                   data: function() {
                       var param = {
                           "q":32,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1, 1), "G"),
-                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1, app.ultimoDiadoMes), "G")
+                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1 , 1), "G"),
+                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1 , app.ultimoDiadoMes), "G")
 
                       };
                       console.log(param);
                       
                       return param;
-                  } 
-              }
-          }, 
+                  },
           schema: {
                 parse: function (response) {
                     
@@ -131,21 +131,20 @@
           sort: { field: "VALOR", dir: "desc" },
           transport:{ 
             read:{ 
-                  dataType: "json",
+                  dataType: "json", timeout: 2000 }
+              },
                   url: app.unidadeUrl + "ws/relatorio",
                   data: function() { 
                       var param = {
                           "q":33,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1, 1), "G"),
-                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1, app.ultimoDiadoMes), "G")
+                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1 , 1), "G"),
+                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1 , app.ultimoDiadoMes), "G")
 
                       };
                      console.log(param);
                       return param;
-                  } 
-              }
-          },
+                  },
           schema: {
                 parse: function (response) {
                     var total = 0;

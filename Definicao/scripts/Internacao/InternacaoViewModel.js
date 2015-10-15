@@ -6,7 +6,8 @@
         onBeforeShowView: function(e)
         {
             this.dataSourceLeito.transport.options.read.url = app.unidadeUrl + "ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO;   
-            console.log(app.unidadeUrl);   
+            console.log(app.unidadeUrl);  
+            console.log(app.unidadeUrl + "ws/relatorio?q=19&setorId=" + app.unidadeCorrente.CODIGO);
             this.refresh();
         },
          onInit:function()
@@ -23,7 +24,7 @@
             { 
                 read: 
                 { 
-                    dataType: "json" 
+                    dataType: "json", timeout: 2000  
                 }
             },
           

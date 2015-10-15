@@ -20,6 +20,7 @@
         <div class="fottertab" data-role="tabstrip">
              <a href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home">Home</a>  
              <a href="views/ProducaoProfissionalView.html" data-align="left" data-icon="action">Produção</a> 
+             <a href="views/Satisfacao/SatisfacaoView.html" data-align="left" data-icon="bookmarks">Satisfação</a>
         </div>
     </div>
     
@@ -144,8 +145,8 @@
 	#if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
      <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
          <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # h)</h5>
-        <h5 style="display:inline-block; float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5></b>
-         </a>
+         <h5 style="display:inline-block; float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5></b>
+     </a>
      
      #}else{#
  

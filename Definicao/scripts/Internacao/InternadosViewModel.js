@@ -32,7 +32,9 @@
            dataSource: new kendo.data.DataSource({
                                      transport: {
                                 read:  {
-                                  dataType: "json",
+                                  dataType: "json", timeout: 2000
+                                      }
+                                 },
                                   data: function() {
                                         var param = {
                                             "q":7,
@@ -42,9 +44,7 @@
                                         };
                                       console.log(param);
                                       return param;
-                                    }
-                                }
-                           },            
+                                    },        
                           schema: {
                                 parse: function (response) {
                                     if (response)

@@ -37,13 +37,21 @@
     </ul>
     <ul data-auto-bind="false" data-role="listview" data-style="inset" data-type="group" data-header-template="producaoProfissionalHeaderTemplate" data-template="producaoProfissionalTemplate" data-bind="source: dataSource"  ></ul>
 
-</div>
-    
-<script type="text/x-kendo-template" id="producaoProfissionalHeaderTemplate">
 
-    <h5>${value}</h5>
-    
+ 
+    <div class="fotter1" data-role="footer">
+        <div class="fottertab" data-role="tabstrip">
+             <a href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home">Home</a>  
+             <a href="views/ProducaoProfissionalView.html" data-align="left" data-icon="action">Produção</a> 
+             <a href="views/Satisfacao/SatisfacaoView.html" data-align="left" data-icon="bookmarks">Satisfação</a>
+        </div>
+    </div>
+ </div>   
+
+<script type="text/x-kendo-template" id="producaoProfissionalHeaderTemplate">
+    <h5>${value}</h5>    
 </script>
+
 <script type="text/x-kendo-template" id="producaoProfissionalTemplate">
 <h5 style="font-weight:bold">#: data.PROFISSIONAL #</h5> 
 <h5>
@@ -55,9 +63,6 @@
     <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL_CONSULTA, "p0") #</div><br />
     <div style="display:inline">R:</div><div style="display:inline">#: data.QUANTIDADE_RETORNO#</div>
     <div style="display:inline"> - TM:</div><div style="display:inline">#: data.TEMPO_MEDIO_RETORNO # (min)</div>
-    <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL_RETORNO, "p0") #</div>
-    
+    <div style="display:inline"> - %P:</div><div style="display:inline; font-weight: bold;">#: kendo.toString(data.PERCENTUAL_RETORNO, "p0") #</div> 
 </h5>
-
-
 </script>

@@ -2,10 +2,10 @@
   "ProjectName": "Definicao",
   "ProjectGuid": "cfde592f-c03e-420b-9187-07d6ef3da132",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.Definicao",
-  "DisplayName": "Definicao",
+  "AppIdentifier": "br.com.vitai.timed.care",
+  "DisplayName": "Ti-Med Care",
   "Author": "",
-  "Description": "Definicao",
+  "Description": "Ti-Med Care",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [

@@ -16,7 +16,7 @@
             if (horaAgora >= 7 && horaAgora <= 19)
                 {
                     controleTurno = 0;
-                 	this.set("detalheTurno1", "(atual)");  
+                    this.set("detalheTurno1", "(atual)");  
                     this.set("detalheTurno2", "(anterior)");
                     
                 }
@@ -40,17 +40,14 @@
         },
          
         onViewShow: function(e)
-        {
-           
-            var that = this;
-            
+        {  
+            var that = this;    
             this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
             that.set("descricaoUnidade", app.unidadeCorrente.DESCRICAO);
             this.set("logo",app.usuarioSettings.LOGO);
             console.log(controleTurno, 'show');
             app.producaoProfissionalViewService.viewModel.dataSource.filter({ field: "TURNO", operator: "equals", value: controleTurno + 1 })
-            that.dataSource.read();
-            
+            that.dataSource.read(); 
         },
         dataSource: new kendo.data.DataSource({
             	//data: dadosFake,
@@ -64,7 +61,6 @@
                                       if (controleTurno == 0)
                                           {
                                             dataInicial = app.addDays(new Date(), -1);
-                                             
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 19, 0, 0);
                                                
                                           }
@@ -72,13 +68,15 @@
                                           {
                                             if (new Date().getHours() >= 0 && new Date().getHours() < 7)
                                             {
+                                                
                                             dataInicial = app.addDays(new Date(), -1);
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 7, 0, 0);
 
                                             }
                                             else
                                             {
-                                          	dataInicial = new Date();
+                                                
+                                            dataInicial = new Date();
                                             dataInicial = new Date(dataInicial.getFullYear(), dataInicial.getMonth(), dataInicial.getDate(), 7, 0, 0);
                                                 
                                             }
@@ -116,7 +114,5 @@
     app.producaoProfissionalViewService = {
         viewModel: new ProducaoProfissionalViewModel()
     };
-    
-    
     
 })(window);
