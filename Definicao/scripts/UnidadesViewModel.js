@@ -53,7 +53,6 @@
                 {
         		    app.unidadeCorrente = item.dataItem;
             		app.unidadeUrl = item.dataItem.URL;
-                    console.log(item.dataItem.NAV_SETTINGS);
                     app.appService.viewModel.navDataSource.read({ data: item.dataItem.NAV_SETTINGS });
             		app.application.navigate('views/Emergencia/EmergenciaView.html');
                     

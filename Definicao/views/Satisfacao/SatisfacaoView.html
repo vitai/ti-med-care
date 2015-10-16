@@ -1,5 +1,5 @@
 <div data-role="view"  data-title="Satisfação" data-layout="main"
-     data-model="app.satisfacaoservice.viewModel" data-bind="events: {init: onInit }">
+     data-model="app.satisfacaoservice.viewModel" data-bind="events: {init: onInit, beforeShow:onBeforeShowView }">
 
         <div data-role="header">
             <div data-role="navbar">
@@ -18,11 +18,11 @@
                  data-series-defaults='{ type: "pie", labels:{visible: false, template: "#= category #: \n #= kendo.format(\"{0:c}\", value)#"} }'
                  data-legend='{visible: true, position: "top"}' 
                  data-series="[{
-                 field: 'VALOR',
-                 categoryField: 'GRUPO',
+                 field: 'TOTAL',
+                 categoryField: 'WOI_NOME',
                  padding: 0
                  }]"
-                 data-bind="source: dataSource",
+                 data-bind="source: dataSourceConsolidado",
                  style="height: 200px;"></div>
         </div>
         </div>
@@ -34,6 +34,14 @@
                  <a href="views/Satisfacao/SatisfacaoView.html" data-align="left" data-icon="bookmarks">Satisfação</a>
             </div>
         </div>
+    
+    
+    <div class="list-view-wrapper">
+
+        <ul data-auto-bind="false"  data-role="listview"  data-style="inset"  data-template="satisfacaoTemplate" data-bind="source: dataSource, events:{dataBound:onListDataboud}">
+        </ul>
+
+    </div>
     
          <div data-role="modalview" id="modalview-help" style="width: 90%;">
              <div class="helpIcon">    
@@ -48,6 +56,12 @@
 
 </div>
 
+<script type="text/x-kendo-template" id="satisfacaoTemplate">
+    <span class="badge">#:kendo.toString(data.TOTAL, "c")#</span>
+    <h4>#:data.WOI_NOME#<br/>
+        <small>Quantidade: #:data.TOTAL#</small> </h4>
+
+</script>
 
 <script>   
     function showHelpText(text)
