@@ -2,7 +2,7 @@
   var resultadoExameViewModel,  
    app =  global.app = global.app || {};
 
-    app.unidadeUrl = "http://177.153.18.165:8081/heetshl/";
+   
     
     resultadoExameViewModel = kendo.data.ObservableObject.extend({
         idExame:0,

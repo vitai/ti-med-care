@@ -1,81 +1,65 @@
 <div data-role="view"  data-title="Satisfação" data-layout="main"
      data-model="app.satisfacaoservice.viewModel" data-bind="events: {init: onInit, beforeShow:onBeforeShowView }">
 
-        <div data-role="header">
-            <div data-role="navbar">
-                <div >
-                   <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
-                    <span data-role="view-title" style="line-height:1.8em"></span>
-                    <div class="helpIcon2" data-align="right" onclick="showHelpText('Pesquisa de Satisfação')" ></div>
-                </div>
+    <div data-role="header">
+        <div data-role="navbar">
+            <div >
+                <a class="nav-button" data-role="backbutton" data-align="left">Voltar</a>
+                <span data-role="view-title" style="line-height:1.8em"></span>
+                <div class="helpIcon2" data-align="right" onclick="showHelpText('Pesquisa de Satisfação')" ></div>
             </div>
         </div>
-            
-    
-     <div class="row" style="background-color:white">
-        <div class="col-xs-7">
-            <div data-role="chart"
-                 data-series-defaults='{ type: "pie", labels:{visible: false, template: "#= category #: \n #= kendo.format(\"{0:c}\", value)#"} }'
-                 data-legend='{visible: true, position: "top"}' 
-                 data-series="[{
-                 field: 'TOTAL',
-                 categoryField: 'WOI_NOME',
-                 padding: 0
-                 }]"
-                 data-bind="source: dataSourceConsolidado",
-                 style="height: 200px;"></div>
-        </div>
-        </div>
-        
-         <div class="fotter1" data-role="footer">
-            <div class="fottertab" data-role="tabstrip">
-                 <a href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home">Home</a>  
-                 <a href="views/ProducaoProfissionalView.html" data-align="left" data-icon="action">Produção</a> 
-                 <a href="views/Satisfacao/SatisfacaoView.html" data-align="left" data-icon="bookmarks">Satisfação</a>
-            </div>
-        </div>
-    
-    
-    <div class="list-view-wrapper">
-
-        <ul data-auto-bind="false"  data-role="listview"  data-style="inset"  data-template="satisfacaoTemplate" data-bind="source: dataSource, events:{dataBound:onListDataboud}">
-        </ul>
-
     </div>
     
-         <div data-role="modalview" id="modalview-help" style="width: 90%;">
-             <div class="helpIcon">    
-            </div>
+    <div class="row" style="background-color:white">
+        <div class="col-xs-12">
+            
+            <h4 class="vt-nome-paciente" style="text-align: center; font-size: 110%">ATENDIMENTO DE ENFERMAGEM</h4>
+            <div data-role="chart"
+                 data-series-defaults='{ type: "pie", labels:{visible: true, distance: 10, template: "#= kendo.format(\"{0:p}\", value)#"} }'
+                 data-legend='{visible: true}' 
+                 data-series="[{
+                 field: 'PERCENTUAL',
+                 categoryField: 'RES_NOME',
+                 padding: 15
+                 }]"
+                 data-bind="source: dataSource",
+                 style="height:160px"></div>
+                
+        </div>
+    </div>
+
+    <div class="fotter1" data-role="footer">
+        <div class="fottertab" data-role="tabstrip">
+            <a href="views/Emergencia/EmergenciaView.html" data-align="left" data-icon="home">Home</a>
+            <a href="views/ProducaoProfissionalView.html" data-align="left" data-icon="action">Produção</a>
+            <a href="views/Satisfacao/SatisfacaoView.html" data-align="left" data-icon="bookmarks">Satisfação</a>
+        </div>
+    </div>
+
+    <div data-role="modalview" id="modalview-help" style="width: 90%;">
+        <div class="helpIcon">
+        </div>
         <div class="btnContent">
             <a data-role="button" onclick="closeHelp();">Fechar</a>
-        </div> 
-                <div id="modalContent">    
-                </div>            
-         </div>  
-    
+        </div>
+        <div id="modalContent">
+        </div>
+    </div>
 
 </div>
 
-<script type="text/x-kendo-template" id="satisfacaoTemplate">
-    <span class="badge">#:kendo.toString(data.TOTAL, "c")#</span>
-    <h4>#:data.WOI_NOME#<br/>
-        <small>Quantidade: #:data.TOTAL#</small> </h4>
-
-</script>
 
 <script>   
-    function showHelpText(text)
-    {
+    function showHelpText(text) {
         $("#modalContent").html(text);
         $("#modalview-help").data("kendoMobileModalView").open();
     }
-    function showHelp(id)
-    {
-        $("#modalContent").html(app.agendaservice.viewModel.painel[id-1]);
+    function showHelp(id) {
+        $("#modalContent").html(app.agendaservice.viewModel.painel[id - 1]);
         $("#modalview-help").data("kendoMobileModalView").open();
     }
-    function closeHelp()
-    {
+    function closeHelp() {
         $("#modalview-help").data("kendoMobileModalView").close();
     }
-</script>  
+</script> 

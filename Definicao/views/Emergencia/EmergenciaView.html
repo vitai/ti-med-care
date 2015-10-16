@@ -145,7 +145,7 @@
 	#if(data.LINKTO && data.VALOR.substring(0,1) > 0){#
      <a href='views/Internacao/InternadosView.html?value=#:data.VALOR#&secao=#:data.CHAVE#&descricaoSecao=#:data.DESCRICAO#' data-role="list-view-link" >
          <h5 style="display:inline-block">#: data.DESCRICAO #: (TM: #: data.MEDIA # h)</h5>
-         <h5 style="display:inline-block; float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5></b>
+         <h5 style="display:inline-block; float:right; margin-right:20px"><small><b>#: data.VALOR #</b></small></h5><br/>
      </a>
      
      #}else{#

@@ -2,7 +2,7 @@
   var sumarioViewModel,  
    app =  global.app = global.app || {};
 
-  //  app.unidadeUrl = "http://177.153.18.165:8081/heetshl/";
+  
     
     sumarioViewModel = kendo.data.ObservableObject.extend({
         paciente:null ,

@@ -2,7 +2,7 @@
  var  SatisfacaoViewModel,    
   app = global.app = global.app || {};
 
-    app.unidadeUrl = "http://177.124.207.146:8080/sits/";
+   
     
     app.mes = kendo.toString(new Date(), "MM");
     app.ano = kendo.toString(new Date(), "yyyy");
@@ -16,9 +16,9 @@
     app.anoAnterior = null;
     app.ultimoDiadoMesAnterior = null; 
     
-  function handleError()
+  function handleError(e)
     {
-        console.log('erro');
+        console.log(e);
     }
    
   SatisfacaoViewModel = kendo.data.ObservableObject.extend({
@@ -30,9 +30,10 @@
             $(".km-list").removeClass("km-list").addClass("list-group");
         },
             onBeforeShowView: function(e) {
-            this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
-            this.dataSourceConsolidado.transport.options.read.url = app.unidadeUrl + "ws/relatorio";     
-            this.refresh();  
+            //this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            console.log(app.unidadeUrl + "ws/relatorio");    
+            //this.dataSource.transport.options.read.url = app.unidadeUrl + "ws/relatorio";
+            //this.refresh();  
             app.mesAnterior  = kendo.toString(new Date(app.ano, app.mes - 2, 1), "MM"); 
             //Exibir os meses em string mes atual / mes anterior
             app.ExibirMes = kendo.toString(new Date(), "MMMM"); // Mes Atual 
@@ -61,75 +62,42 @@
             this.set("ExibirMesAnterior", app.ExibirMesAnterior);  
             this.set("MesFaturado", app.MesFaturado); 
                 
-           console.log(kendo.toString(new Date(app.ano, app.mes - 1 , app.ultimoDiadoMes), "G"));
-            console.log(app.ExibirMesAnterior);
-            console.log(app.ExibirMes);
-            console.log(app.mes);
-            console.log(app.ano);
-            console.log(app.ultimoDiadoMes); 
+         
         },refresh: function() {
             this.dataSource.read();
-            this.dataSourceConsolidado.read();
+            
         },
-      dataSource: new kendo.data.DataSource({
-          sort: { field: "TOTAL", dir: "desc" },
-          transport:{ 
+        dataSource: new kendo.data.DataSource({
+            transport:{ 
             read:{ 
-                  dataType: "json", timeout: 2000 }
-              },
-                  url: app.unidadeUrl + "ws/relatorio",
-                  data: function() { 
-                    var param = {
+                 url: app.unidadeUrl + "/ws/relatorio",
+                  data: function() {
+                      var param = {
                           "q":35,
                           "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1 , 1), "G"),
-                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1 , app.ultimoDiadoMes), "G")
+                          "dataInicial": kendo.toString(new Date(2014,10,1), "G"),
+                          "dataFinal": kendo.toString(new Date(), "G"),
+                          "pergunta":"ATENDIMENTO DA ENFERMAGEM"
 
                       };
-                     console.log(param);
-                     return param;
-                  },
+                      console.log(param);
+                      
+                      return param;
+                  }
+                }
+               },
           schema: {
                 parse: function (response) {
                     
                     return response;
                 }
             },
-          error: handleError       
+          error: handleError  
         }),
-      dataSourceConsolidado: new kendo.data.DataSource({
-          sort: { field: "TOTAL", dir: "desc" },
-          transport:{ 
-            read:{ 
-                  dataType: "json", timeout: 2000 }
-              },
-                  url: app.unidadeUrl + "ws/relatorio",
-                  data: function() { 
-                      var param = {
-                          "q":35,
-                          "setorId": 1,
-                          "dataInicial": kendo.toString(new Date(app.ano, app.mes - 1 , 1), "G"),
-                          "dataFinal": kendo.toString(new Date(app.ano, app.mes - 1 , app.ultimoDiadoMes), "G")
-
-                      };
-                     console.log(param);
-                      return param;
-                  },
-          schema: {
-                parse: function (response) {
-                    var total = 0;
-                    for(var i=0;i<response.length;i++)            
-                    {
-                     total += response[i].TOTAL
-                        console.log(total);
-                    }                     
-                    return response;
-                }
-            },
-        error: handleError
-  }),    
+ 
        onListDataboud: function (e) {
             var dataView = e.sender.dataSource.view();
+           console.log(dataView)
             var groups = $(".km-list>li"); 
             if (groups)
                 for (var i = 0; i < groups.length; i++) {

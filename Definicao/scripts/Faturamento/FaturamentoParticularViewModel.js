@@ -2,7 +2,7 @@
     var faturamentoParticularViewModel, 
         app = global.app = global.app || {};
 
-    app.unidadeUrl = "http://santacasadecampos.dyndns.org:8080/sits/";
+    
     
     app.mes = kendo.toString(new Date(), "MM");
     app.ano = kendo.toString(new Date(), "yyyy");
